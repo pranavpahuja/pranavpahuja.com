@@ -31,11 +31,11 @@ const social: Social = [
     icon: "linkedin",
     link: "https://www.linkedin.com/in/prnvp/",
   },
-  # {
-#     name: "Threads",
-#     icon: "threads",
-#     link: "https://www.threads.com/@once_ui",
-#   },
+  {
+    name: "Threads",
+    icon: "threads",
+    link: "https://www.threads.com/@once_ui",
+  },
   {
     name: "Email",
     icon: "email",
