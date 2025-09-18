@@ -2,14 +2,14 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Pranav",
+  lastName: "Pahuja",
+  name: `Pranav Pahuja`,
+  role: "IT Consultant",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "contact@pranavpahuja.com",
+  location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English", "Hindi", "Punjabi", "German"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
@@ -24,18 +24,18 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/pranavpahuja",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/prnvp/",
   },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
-  },
+  # {
+#     name: "Threads",
+#     icon: "threads",
+#     link: "https://www.threads.com/@once_ui",
+#   },
   {
     name: "Email",
     icon: "email",
@@ -48,8 +48,8 @@ const home: Home = {
   image: "/images/og/home.jpg",
   label: "Home",
   title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  description: `Portfolio website showcasing my work as an ${person.role}`,
+  headline: <>Building bridges between business problems and effective code solutions</>,
   featured: {
     display: true,
     title: (
@@ -65,14 +65,14 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Selene, a design engineer at{" "}
+      I'm Pranav Pahuja, an IT Consultant working with a Big 4.{" "}
       <Logo
         dark
         icon="/trademarks/wordmark-dark.svg"
         style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
       />
       , where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      <br /> business solutions. After hours, I tinker and build my own projects.
     </>
   ),
 };
@@ -98,14 +98,14 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Pranav is a Gurugram-based IT Consultant with a passion for transforming complex business challenges
+        into simple, elegant solutions. His work spans tech stack like Python, Java, Oracle Suite, 
+        enabling breakthrough innovations, automations, Analytics and solutions - displaying a convergence of innovation and technology.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: false, // set to false to hide this section
     title: "Work Experience",
     experiences: [
       {
