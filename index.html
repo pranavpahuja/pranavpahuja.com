@@ -358,11 +358,14 @@
 
   <section class="py-5">
     <div class="container">
-      <div class="rounded-4 p-5"
-        style="background-image: url(images/section-banner.png); background-size: cover ; background-repeat: no-repeat; background-position: center;">
-        <div class="row">
+      <div class="rounded-4 p-5 position-relative overflow-hidden" style="height:493px; max-width:1454px; margin:auto;">
+        <video autoplay muted loop playsinline class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" style="z-index:1;">
+          <source src="images/black_hole.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="row position-relative" style="z-index:2;">
           <div class="col-md-4">
-            <div class="h-100 bg-black text-white p-4 rounded-4">
+            <div class="h-100 bg-black text-white p-4 rounded-4" style="opacity:0.95;">
               <h3>
                 Certifications
               </h3>
@@ -386,7 +389,6 @@
               <p class="text-light-emphasis">
                 Google
               </p>
-
               <div class="py-4">
                 <p class="text-light-emphasis">
                   Present
