@@ -31,6 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
@@ -112,8 +113,10 @@
     <nav class="navbar bg-white fixed-top">
       <div class="container-fluid">
         <div class="d-flex align-items-center g-4">
-          <a class="navbar-brand d-flex" href="index.html">
-            <img src="images/logo.png" class="img-fluid" id="logo" alt="Pranav Pahuja Logo">
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <svg width="220" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="30" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="28" fill="#000000">Pranav Pahuja.</text>
+            </svg>
           </a>
           <div class="icon px-5">
             <a href="https://github.com/pranavpahuja" class="text-decoration-none">
@@ -137,40 +140,10 @@
               </svg>
             </a>
             <a href="#" class="text-decoration-none">
-              <svg class="twitter" width="24" height="24">
-              <use xlink:href="#twitter"></use>
-              </svg>
-            </a>
-            <a href="#" class="text-decoration-none">
               <svg class="whatsapp" width="24" height="24">
               <use xlink:href="#whatsapp"></use>
               </svg>
             </a>
-            </div>
-          </div>
-          <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navabar-toggler-icon">
-            <svg class="text-primary menu" width="32" height="32">
-              <use xlink:href="#menu"></use>
-            </svg>
-            </span>
-          </button>
-
-          <div class="offcanvas offcanvas-end text-white bg-black" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-            <button type="button" class="btn-close btn-close-white ms-3" data-bs-dismiss="offcanvas"
-              aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-            <ul class="navbar-nav flex-grow-1 p-4">
-              <li class="nav-item">
-              <a class="nav-link active text-uppercase ls-4 text-white" aria-current="page" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link text-uppercase ls-4 text-white" aria-current="page" href="index.html">Contact</a>
-              </li>
-            </ul>
             </div>
           </div>
           </div>
@@ -194,7 +167,8 @@
           </div>
         </section>
 
-        <div class="row text-uppercase bg-black rounded-4 p-3 mt-5 mx-auto" style="max-width: 90vw; width: 100%;">
+        <div class="container mt-5 fade-in-section">
+          <div class="row text-uppercase bg-black rounded-4 p-3 mx-auto">
           <div class="col-md-3">
             <div class="d-flex align-items-center gap-4">
               <h2 class="display-2 text-light">5+</h2>
@@ -223,8 +197,8 @@
           </div>
 
           <div class="col-md-3">
-            <div class="d-flex align-items-center gap-4">
-              <a href="https://google.com" class="btn btn-lg btn-primary text-uppercase fw-bold px-4 py-3 rounded-4 d-flex align-items-center gap-2" style="font-size:1.5rem;">
+            <div class="d-flex align-items-center h-100 justify-content-center">
+              <a href="https://google.com" class="btn btn-lg btn-primary text-uppercase fw-bold px-4 py-3 rounded-4 d-flex align-items-center gap-2 w-100 justify-content-center" style="font-size:1.2rem;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 5v14M19 12l-7 7-7-7"/>
                 </svg>
@@ -233,9 +207,10 @@
             </div>
           </div>
         </div>
+        </div>
 
 
-  <section class="p-5 ">
+  <section class="p-5 fade-in-section">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-3">
@@ -312,7 +287,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="fade-in-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
@@ -380,7 +355,7 @@
     </div>
   </section>
 
-  <section class="py-5">
+  <section class="py-5 fade-in-section">
     <div class="container">
       <div class="rounded-4 p-5 position-relative overflow-hidden" style="max-width:1454px; margin:auto;">
         <video autoplay muted loop playsinline class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" style="z-index:1;">
@@ -433,7 +408,7 @@
 
 
 
-  <section>
+  <section class="fade-in-section">
     <div class="container">
       <div class="text-center">
         <h2 class="display-3 mb-5">
@@ -489,7 +464,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="fade-in-section">
     <div class="container">
       <div class="text-center pt-5">
         <h2 class="display-3">
@@ -597,7 +572,7 @@
 
 
 
-  <section class="p-5 bg-yellow py-5">
+  <section class="p-5 bg-yellow py-5 fade-in-section">
     <div class="container">
       <div class="row justify-content-center my-5">
         <div class="col-md-5">
@@ -646,40 +621,15 @@
       <div class="row g-md-5 my-5">
         <div class="col-md-4">
           <div class="info-box">
-            <img src="images/logo-2.png" class="img-fluid">
+            <svg width="220" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="30" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="28" fill="#ffffff">PranavPahuja.</text>
+            </svg>
             <p class="py-4">
               Reach out today to discuss how I can help you achieve your goals with tailored IT solutions & strategic consulting.
             </p>
           </div>
         </div>
-        <!-- <div class="col-md-3">
-          <div class="row">
-            <div class="col-6">
-              <ul class="list-unstyled">
-                <li>
-                  <a class="text-decoration-none text-white" href="index.html">Home</a>
-                </li>
-                <li>
-                  <a class="text-decoration-none text-white" href="#">About</a>
-                </li> 
-                <li>
-                  <a class="text-decoration-none text-white" href="index.html">Team</a>
-                </li>
-                <li>
-                  <a class="text-decoration-none text-white" href="index.html">Portfolio</a>
-                </li> 
-              </ul>
-            </div>
-            <div class="col-6">
-              <h6>
-                <a class="text-decoration-none text-white" href="index.html">Blog</a>
-              </h6>
-              <h6>
-                <a class="text-decoration-none text-white" href="index.html">Contact</a>
-              </h6>
-            </div>
-          </div>
-        </div> -->
+
         <div class="col-md-5">
           <p>
             Send me an email at:
@@ -690,23 +640,18 @@
         </div>
       </div>
       <div class="row g-md-5 my-5">
-        <h5>What does the future hold? Let's find out...</h5>
-        <iframe width="500" height="500" src="https://www.youtube-nocookie.com/embed/uD4izuDMUQA?si=DvoGeeaKPNP3Utn3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <hr class="border-top border-secondary my-5">
+        <h5 class="fade-in-section">What does the future hold? Let's find out...</h5>
+        <iframe class="fade-in-section" width="500" height="500" src="https://www.youtube-nocookie.com/embed/uD4izuDMUQA?si=DvoGeeaKPNP3Utn3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
-      <h6>Control the SOL:</h6>
+      <h6 class="fade-in-section">Control the SOL:</h6>
       <br>
-      <iframe width="1400" height="700" src="https://eyes.nasa.gov/apps/solar-system/#/home?interactPrompt=true&logo=false&surfaceMapTiling=true&hd=true" allowfullscreen ></iframe>
+      <iframe class="fade-in-section" width="1400" height="700" src="https://eyes.nasa.gov/apps/solar-system/#/home?interactPrompt=true&logo=false&surfaceMapTiling=true&hd=true" allowfullscreen ></iframe>
       <br><br><br>
-      <a href="/game.html" class="btn btn-primary text-decoration-none text-uppercase fw-bold px-4 py-3 rounded-4 d-flex align-items-center gap-2" style="font-size:1.2rem;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="6" width="20" height="12" rx="2"></rect>
-                    <path d="M6 12h4m-2-2v4m9-2h2"/>
-                  </svg>
-                  Here's a surprise. Be Inspired. Open now.</a>
                   <br>
 
-      <div class="row">
-        <p>©2025 Pranav Pahuja. Based on HTML Template by <a href="https://templatesjungle.com/" class="text-white" target="_blank">TemplatesJungle</a>.</p>
+      <div class="row pt-5">
+        <p class="text-center text-secondary">©2025 Pranav Pahuja</p>
       </div>
     </div>
   </footer>
