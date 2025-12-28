@@ -9,54 +9,58 @@
 
 :root {
 	--bs-blue: #4ba1a7;
-	--bs-red: #f0756c;
-	--bs-orange: #f5e9e9;
-	--bs-yellow: #efeaea;
-	--bs-green: #f5f8f1;
-	--bs-teal: #efe8ef;
-	--bs-cyan: #f3f3f3;
-	--bs-black: #111111;
+	--bs-red: #f0756c; /* Kept for legacy, but unused in primary */
+	/* Replaced pastels with dark variations */
+	--bs-orange: #2a2a2a; 
+	--bs-yellow: #1c1c1c;
+	--bs-green: #222222;
+	--bs-teal: #252525;
+	--bs-cyan: #2a2a2a;
+	--bs-black: #0a0a0a; /* Darker black for depth */
 	--bs-white: #ffffff;
-	--bs-gray: #777777;
+	--bs-gray: #a0a0a0; /* Lighter gray for better contrast on dark */
 
-	--bs-link-color: #111111;
-	--bs-link-color-rgb: 17, 17, 17;
-	--bs-link-hover-color: #f0756c;
-	--bs-link-hover-color-rgb: 240, 117, 108;
+	--bs-link-color: #ffffff;
+	--bs-link-color-rgb: 255, 255, 255;
+	--bs-link-hover-color: #4ba1a7; /* Teal Hover */
+	--bs-link-hover-color-rgb: 75, 161, 167;
 
-	--bs-primary: #f0756c;
-	--bs-primary-rgb: 240, 117, 108;
-	--bs-body-color: #111111;
+	--bs-primary: #4ba1a7; /* Switched to Teal */
+	--bs-primary-rgb: 75, 161, 167;
+	--bs-body-color: #e0e0e0; /* Light text for dark body */
 	--bs-info: #c3c3c3;
 	--bs-light-text-emphasis: #c3c3c3;
 
-	--swiper-pagination-color: #f0756c;
+	--swiper-pagination-color: #4ba1a7;
 }
 
 body,
 body [data-bs-theme="light"] {
+    /* Ensure body variables match root for consistency */
 	--bs-blue: #4ba1a7;
 	--bs-red: #f0756c;
-	--bs-orange: #f5e9e9;
-	--bs-yellow: #efeaea;
-	--bs-green: #f5f8f1;
-	--bs-teal: #efe8ef;
-	--bs-cyan: #f3f3f3;
-	--bs-black: #111111;
+	--bs-orange: #2a2a2a; 
+	--bs-yellow: #1c1c1c;
+	--bs-green: #222222;
+	--bs-teal: #252525;
+	--bs-cyan: #2a2a2a;
+	--bs-black: #0a0a0a;
 	--bs-white: #ffffff;
-	--bs-gray: #777777;
+	--bs-gray: #a0a0a0;
 	--bs-info: #c3c3c3;
+    background-color: var(--bs-black);
+    color: var(--bs-body-color);
 }
 
 .btn-primary {
-	--bs-btn-color: var(--bs-black);
-	--bs-btn-bg: var(--bs-orange);
-	--bs-btn-border-color: var(--bs-orange);
+	--bs-btn-color: #fff;
+	--bs-btn-bg: var(--bs-primary); /* Use new primary */
+	--bs-btn-border-color: var(--bs-primary);
 	--bs-btn-hover-color: #fff;
-	--bs-btn-hover-bg: var(--bs-black);
-	--bs-btn-hover-border-color: var(--bs-black);
-	--bs-btn-focus-shadow-rgb: 49, 132, 253;
-	--bs-btn-active-bg: var(--bs-black);
+	--bs-btn-hover-bg: #3a8a90; /* Darker Teal */
+	--bs-btn-hover-border-color: #3a8a90;
+	--bs-btn-focus-shadow-rgb: 75, 161, 167;
+	--bs-btn-active-bg: #3a8a90;
 }
 
 .pagination {
@@ -85,20 +89,29 @@ body [data-bs-theme="light"] {
 	list-style: none;
 }
 
+/* Updated utility classes for dark theme */
 .bg-gray {
-	background-color: var(--bs-gray) !important;
+	background-color: #333 !important;
+    color: #fff;
 }
 
 .bg-yellow {
 	background-color: var(--bs-yellow) !important;
+    color: #fff;
 }
 
 .bg-green {
 	background-color: var(--bs-green) !important;
+    color: #fff;
 }
 
 .bg-teal {
 	background-color: var(--bs-teal) !important;
+    color: #fff;
+}
+
+.navbar-nav a.nav-link {
+    color: #fff !important; /* Ensure nav links are white */
 }
 
 .navbar-nav a.nav-link:hover {
@@ -116,12 +129,14 @@ h4,
 h5,
 h6 {
 	font-weight: 700;
+    color: #fff; /* Ensure headings are white */
 }
 .display-1 {
 	font-size: calc(2rem + 3vw); /* Adjusted for better mobile scaling */
 	font-weight: 900;
 	font-family: var(--body-font);
 	line-height: 1.1;
+    color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -135,9 +150,18 @@ h6 {
 .display-4,
 .display-5 {
 	font-weight: 700;
+    color: #fff;
 }
 .p-6 {
 	padding: 4rem !important;
+}
+
+/* Reduced styling for roundness */
+.rounded-4 {
+    border-radius: 12px !important; /* Sharper corners */
+}
+.rounded-5 {
+    border-radius: 16px !important;
 }
 
 /* Navbar spacing */
