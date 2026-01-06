@@ -17,7 +17,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -37,9 +37,13 @@ const {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="https://pranavpahuja.com/images/banner.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta property="twitter:image" content="https://pranavpahuja.com/images/banner.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url} />
+
+    <!-- Fonts -->
+    <!-- Space Grotesk is loaded via global.css locally -->
     
     <!-- Schema.org -->
     <script type="application/ld+json" is:inline>

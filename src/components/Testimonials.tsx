@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Quote } from "lucide-react";
 
 const testimonials = [
@@ -21,8 +20,6 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-5">
@@ -37,6 +34,7 @@ export default function Testimonials() {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-black text-white p-8 rounded-[30px] border border-transparent hover:border-green hover:shadow-xl transition-all relative group"
               >
