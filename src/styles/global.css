@@ -18,10 +18,13 @@
 
 :root {
   --green: #b9ff66;
-  --black: rgb(0, 0, 0);
+  --black: #050505; /* Deep Black */
   --dark: #191a23;
   --gray: #f3f3f3;
   --white: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 25px;
 }
 
 @theme {
@@ -33,31 +36,61 @@
   --color-white: var(--white);
 }
 
+body {
+  background-color: var(--black);
+  color: var(--white);
+  /* Subtle mesh gradient for depth */
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(185, 255, 102, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05); /* Inner highlight */
+}
+
+/* Enhancing text readability on dark */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .font-outline {
-  -webkit-text-stroke: 2.5px black;
+  -webkit-text-stroke: 2.5px white; /* Changed to white for dark mode */
   background-color: transparent;
 }
 .font-outline-sm {
-  -webkit-text-stroke: 1.2px black;
+  -webkit-text-stroke: 1.2px white; /* Changed to white for dark mode */
   background-color: transparent;
 }
 
 .btn-primary {
-  @apply bg-dark text-white rounded-lg px-[35px] py-5 transition-all duration-200;
+  @apply bg-white text-black rounded-lg px-[35px] py-5 transition-all duration-200 border border-transparent font-medium;
 }
 .btn-primary:hover {
   @apply bg-green text-black transform scale-105;
 }
 
 .btn-secondary {
-  @apply bg-transparent text-black px-[35px] py-5 rounded-lg border border-solid border-black transition-all duration-200;
+  @apply bg-transparent text-white px-[35px] py-5 rounded-lg border border-solid border-white transition-all duration-200;
 }
 .btn-secondary:hover {
-  @apply bg-black text-white border-green transform scale-105;
+  @apply bg-white text-black border-transparent transform scale-105;
 }
 
 .btn-tertiary {
-  @apply bg-green text-black rounded-lg px-[35px] py-5 transition-all duration-200;
+  @apply bg-green text-black rounded-lg px-[35px] py-5 transition-all duration-200 font-medium;
 }
 .btn-tertiary:hover {
   @apply bg-white text-black transform scale-105;
@@ -69,11 +102,12 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #111;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #000000;
+  background: #333;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -85,8 +119,8 @@
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--black);
-  color: var(--white);
+  background: var(--white);
+  color: var(--black);
   padding: 8px 16px;
   text-decoration: none;
   z-index: 100;

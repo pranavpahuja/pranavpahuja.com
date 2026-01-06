@@ -12,7 +12,7 @@ const faqs = [
     answer: (
       <>
         <p className="mb-4">I am available between 0800 hrs and 2000 hrs. You can block my calendar here:</p>
-        <a href="https://cal.com/pranavpahuja" className="inline-flex items-center gap-2 bg-dark text-white px-6 py-3 rounded-lg hover:bg-green hover:text-black transition-colors font-bold uppercase">
+        <a href="https://cal.com/pranavpahuja" aria-label="Book a call on Cal.com" className="inline-flex items-center gap-2 bg-dark text-white px-6 py-3 rounded-lg hover:bg-green hover:text-black transition-colors font-bold uppercase">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -39,7 +39,7 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<string | null>(null);
 
   return (
     <section className="py-20 container mx-auto px-5">
@@ -55,20 +55,21 @@ export default function FAQ() {
         </div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div key={index} className="border border-gray-200 rounded-2xl overflow-hidden bg-white">
+          {faqs.map((faq) => (
+            <div key={faq.question} className="glass-panel rounded-2xl overflow-hidden hover:bg-white/5 transition-all">
               <button
-                onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left font-bold text-lg hover:bg-gray-50 transition-colors"
-                aria-expanded={activeIndex === index}
+                type="button"
+                onClick={() => setActiveIndex(activeIndex === faq.question ? null : faq.question)}
+                className="w-full flex items-center justify-between p-6 text-left font-bold text-lg text-white hover:text-green transition-colors"
+                aria-expanded={activeIndex === faq.question}
               >
                 <span>{faq.question}</span>
                 <ChevronDown
-                  className={`w-6 h-6 transition-transform duration-300 ${activeIndex === index ? "rotate-180 text-green" : "text-black"}`}
+                  className={`w-6 h-6 transition-transform duration-300 ${activeIndex === faq.question ? "rotate-180 text-green" : "text-white"}`}
                 />
               </button>
               <AnimatePresence>
-                {activeIndex === index && (
+                {activeIndex === faq.question && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
@@ -76,7 +77,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100">
+                    <div className="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/10">
                       {faq.answer}
                     </div>
                   </motion.div>

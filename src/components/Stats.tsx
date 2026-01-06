@@ -30,7 +30,7 @@ const Counter = ({ value }: { value: number }) => {
 export default function Stats() {
   return (
     <div className="container mx-auto px-5 mt-5">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-black rounded-[30px] p-8 text-white">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 glass-panel rounded-[30px] p-8 text-white">
         <div className="col-span-1">
           <div className="flex items-center gap-4">
             <h2 className="text-5xl md:text-6xl font-bold">
