@@ -27,11 +27,11 @@ export default function Testimonials() {
           <h2 className="text-4xl md:text-5xl font-bold">Testimonials</h2>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((item, index) => (
               <motion.div
-                key={index}
+                key={item.author}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
