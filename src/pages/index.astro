@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import Services from '../components/Services.astro';
+import Timeline from '../components/Timeline.astro';
+import Certifications from '../components/Certifications.astro';
+import Testimonials from '../components/Testimonials.tsx';
+import FAQ from '../components/FAQ.tsx';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Pranav Pahuja | IT Consultant & Solutions Designer">
+	<Header />
+	<main>
+		<Hero />
+		<Stats />
+		<Services />
+		<Timeline />
+		<Certifications />
+		<Testimonials client:visible />
+		<FAQ client:visible />
+		<Contact />
+	</main>
+	<Footer />
+</Layout>
