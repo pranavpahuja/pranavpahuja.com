@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import cubeImage from '../assets/images/iridescent_chrome_geometric_cube.png';
 ---
 <section class="py-20 fade-in-section">
   <div class="container mx-auto px-5">
@@ -47,8 +49,8 @@
         <div class="col-span-1 md:col-span-5 flex justify-center items-center h-[400px]">
            <div class="relative w-full h-full flex items-center justify-center">
               <div class="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-purple-100/50 rounded-full blur-[80px] opacity-60"></div>
-              <img 
-                src="/images/iridescent_chrome_geometric_cube.png" 
+              <Image 
+                src={cubeImage} 
                 alt="3D Cube" 
                 class="w-full scale-110 h-auto object-contain animate-slow-spin z-10 mix-blend-multiply"
                 style="mask-image: radial-gradient(closest-side, black 65%, transparent 100%); -webkit-mask-image: radial-gradient(closest-side, black 65%, transparent 100%);"

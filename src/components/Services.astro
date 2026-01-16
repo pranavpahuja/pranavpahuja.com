@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import fluidImage from '../assets/images/iridescent_chrome_abstract_fluid.png';
 ---
 <section class="p-5 md:py-20 container mx-auto">
   <div class="mb-12 flex items-end justify-between">
@@ -26,8 +28,8 @@
     <!-- Floating Shape Cell -->
     <div class="hidden md:flex col-span-1 md:col-span-3 items-center justify-center relative">
         <div class="absolute inset-0 bg-gradient-to-tr from-green/20 to-purple/20 rounded-full blur-[60px] opacity-30"></div>
-        <img 
-            src="/images/iridescent_chrome_abstract_fluid.png" 
+        <Image 
+            src={fluidImage} 
             class="w-[140%] h-auto object-contain animate-float z-10 mix-blend-multiply" 
             alt="Decoration" 
             style="mask-image: radial-gradient(closest-side, black 60%, transparent 100%); -webkit-mask-image: radial-gradient(closest-side, black 60%, transparent 100%);"
