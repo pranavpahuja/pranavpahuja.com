@@ -45,14 +45,18 @@ body {
 }
 
 /* Clean Card Style - Less Hazy, More Crisp */
+/* Clean Card Style - Bento Grid Theme */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 
-    0 4px 20px -2px rgba(0, 0, 0, 0.05),
-    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Enhancing text readability on light */

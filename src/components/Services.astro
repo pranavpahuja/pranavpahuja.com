@@ -1,77 +1,65 @@
 ---
 ---
 <section class="p-5 md:py-20 container mx-auto">
-  <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-    <div class="glass-panel rounded-[20px] p-8 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-md">
-      <div class="flex flex-col gap-6 items-start h-full">
-        <div class="icon text-green shrink-0 bg-black/5 p-3 rounded-2xl">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 2H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2.64l-.58 1a2 2 0 0 0 0 2a2 2 0 0 0 1.75 1h6.46A2 2 0 0 0 17 21a2 2 0 0 0 0-2l-.59-1H19a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3M8.77 20L10 18h4l1.2 2ZM20 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16Zm0-3H4V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1Z" />
-          </svg>
-        </div>
-        <div class="text-left">
-          <h5 class="font-bold text-xl mb-3 text-black">
-            Strategic Consulting
-          </h5>
-          <p class="text-gray-600 text-base leading-relaxed">
-            Aligning complex technical implementations with organizational goals to optimize workflows and drive efficiency.
-          </p>
-        </div>
-      </div>
+  <div class="mb-12 flex items-end justify-between">
+    <h2 class="text-4xl md:text-6xl font-bold text-black tracking-tight leading-none">
+      Expertise<span class="text-green">.</span>
+    </h2>
+    <div class="hidden md:block h-[1px] flex-grow bg-gray-100 ml-8 mb-4"></div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+    
+    <!-- Large Card: Main Strategy -->
+    <div class="col-span-1 md:col-span-8 glass-panel rounded-[30px] p-10 relative overflow-hidden group">
+       <div class="relative z-10 flex flex-col justify-between h-full min-h-[280px]">
+          <div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mb-6">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+          </div>
+          <div>
+            <h3 class="text-3xl font-bold text-black mb-3">Strategic Consulting</h3>
+            <p class="text-gray-600 text-lg max-w-md">Aligning complex technical implementations with organizational goals to optimize workflows and drive efficiency.</p>
+          </div>
+       </div>
+       <!-- Decorative Abstract Shape -->
+       <img src="/images/iridescent_chrome_abstract_fluid.png" class="absolute -right-20 -bottom-20 w-[400px] opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700 ease-in-out z-0" alt="Decoration" />
     </div>
 
-    <div class="glass-panel rounded-[20px] p-8 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-md">
-      <div class="flex flex-col gap-6 items-start h-full">
-        <div class="icon text-green shrink-0 bg-black/5 p-3 rounded-2xl">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16 14H8a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2m0-4h-6a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2m4-6h-3V3a1 1 0 0 0-2 0v1h-2V3a1 1 0 0 0-2 0v1H9V3a1 1 0 0 0-2 0v1H4a1 1 0 0 0-1 1v14a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1m-1 15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6h2v1a1 1 0 0 0 2 0V6h2v1a1 1 0 0 0 2 0V6h2v1a1 1 0 0 0 2 0V6h2Z" />
-          </svg>
+    <!-- Small Card: Tech Stack -->
+    <div class="col-span-1 md:col-span-4 glass-panel rounded-[30px] p-10 flex flex-col justify-between min-h-[280px]">
+        <div class="w-12 h-12 bg-gray-50 text-black border border-gray-100 rounded-full flex items-center justify-center mb-6">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
         </div>
-        <div class="text-left">
-          <h5 class="font-bold text-xl mb-3 text-black">
-            Full-Stack Development
-          </h5>
-          <p class="text-gray-600 text-base leading-relaxed">
-             Building scalable applications using Python, PL/SQL, and modern web frameworks tailored to client needs.
-          </p>
+        <div>
+           <h3 class="text-2xl font-bold text-black mb-2">Full-Stack Dev</h3>
+           <p class="text-gray-500">Scalable Python, PL/SQL & Modern Web Apps.</p>
         </div>
-      </div>
     </div>
 
-    <div class="glass-panel rounded-[20px] p-8 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-md">
-      <div class="flex flex-col gap-6 items-start h-full">
-        <div class="icon text-green shrink-0 bg-black/5 p-3 rounded-2xl">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1M6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16Z" />
-          </svg>
+    <!-- Medium Card: Digital Transformation -->
+    <div class="col-span-1 md:col-span-5 glass-panel rounded-[30px] p-10 flex flex-col justify-between min-h-[280px]">
+        <div class="w-12 h-12 bg-gray-50 text-black border border-gray-100 rounded-full flex items-center justify-center mb-6">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </div>
-        <div class="text-left">
-          <h5 class="font-bold text-xl mb-3 text-black">
-            Digital Transformation
-          </h5>
-          <p class="text-gray-600 text-base leading-relaxed">
-            Modernizing legacy systems and leveraging emerging technologies to foster innovation and long-term growth.
-          </p>
+        <div>
+           <h3 class="text-2xl font-bold text-black mb-2">Transformation</h3>
+           <p class="text-gray-500">Modernizing legacy systems for innovation.</p>
         </div>
-      </div>
     </div>
 
-    <div class="glass-panel rounded-[20px] p-8 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-md">
-      <div class="flex flex-col gap-6 items-start h-full">
-        <div class="icon text-green shrink-0 bg-black/5 p-3 rounded-2xl">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16 14H8a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2m0-4h-6a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2m4-6h-3V3a1 1 0 0 0-2 0v1h-2V3a1 1 0 0 0-2 0v1H9V3a1 1 0 0 0-2 0v1H4a1 1 0 0 0-1 1v14a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1m-1 15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6h2v1a1 1 0 0 0 2 0V6h2v1a1 1 0 0 0 2 0V6h2v1a1 1 0 0 0 2 0V6h2Z" />
-          </svg>
-        </div>
-        <div class="text-left">
-          <h5 class="font-bold text-xl mb-3 text-black">
-            AI & Data Analytics
-          </h5>
-          <p class="text-gray-600 text-base leading-relaxed">
-            Applying machine intelligence and data insights to enhance business foresight, personalization, and efficiency.
-          </p>
-        </div>
-      </div>
+    <!-- Large Card: AI & Data -->
+    <div class="col-span-1 md:col-span-7 glass-panel rounded-[30px] p-10 relative overflow-hidden group">
+        <div class="relative z-10 flex flex-col justify-between h-full">
+            <div class="w-12 h-12 bg-green/20 text-black/80 rounded-full flex items-center justify-center mb-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/><line x1="3.27" y1="16.96" x2="12" y2="11.96"/><line x1="20.73" y1="16.96" x2="12" y2="11.96"/></svg>
+            </div>
+            <div>
+              <h3 class="text-3xl font-bold text-black mb-3">AI & Data Analytics</h3>
+              <p class="text-gray-600 text-lg max-w-lg">Applying machine intelligence and data insights to enhance business foresight, personalization, and efficiency.</p>
+            </div>
+         </div>
+         <div class="absolute top-0 right-0 w-64 h-64 bg-green/10 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-green/20 transition-colors duration-500"></div>
     </div>
+
   </div>
 </section>
