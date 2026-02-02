@@ -34,10 +34,10 @@ export default function Stats() {
         <div className="col-span-1">
           <div className="flex items-center gap-4">
             <h2 className="text-5xl md:text-6xl font-bold">
-              <Counter value={5} />+
+              <Counter value={95} />%
             </h2>
             <p className="text-gray-600 uppercase tracking-widest text-sm leading-tight">
-              Years of <br /> experience
+              Manual Ops <br /> Eliminated
             </p>
           </div>
         </div>
@@ -45,10 +45,10 @@ export default function Stats() {
         <div className="col-span-1">
           <div className="flex items-center gap-4">
             <h2 className="text-5xl md:text-6xl font-bold">
-              <Counter value={6} />+
+              <Counter value={80} />%
             </h2>
             <p className="text-gray-600 uppercase tracking-widest text-sm leading-tight">
-              satisfied <br /> clients
+              SLA <br /> Improvement
             </p>
           </div>
         </div>
@@ -56,17 +56,17 @@ export default function Stats() {
         <div className="col-span-1">
           <div className="flex items-center gap-4">
             <h2 className="text-5xl md:text-6xl font-bold">
-              <Counter value={20} />+
+              <Counter value={15} />+
             </h2>
             <p className="text-gray-600 uppercase tracking-widest text-sm leading-tight">
-              ideas turned <br /> into solutions
+              Automation <br /> Solutions
             </p>
           </div>
         </div>
 
         <div className="col-span-1 flex items-center justify-center">
           <a
-            href="https://google.com"
+            href="/Pranav_Resume.pdf"
             className="btn-primary w-full flex items-center justify-center gap-2 uppercase font-bold text-lg text-center no-underline"
           >
             <svg
@@ -80,7 +80,7 @@ export default function Stats() {
             >
               <path d="M12 5v14M19 12l-7 7-7-7" />
             </svg>
-            Get My Resume
+            Full Profile
           </a>
         </div>
       </div>

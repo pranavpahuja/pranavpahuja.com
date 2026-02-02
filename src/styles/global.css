@@ -113,22 +113,40 @@ p {
   @apply bg-white text-black transform scale-105;
 }
 
-/* custom scrollbar */
+/* Global Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar - Light Theme Optimized */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #f8f9fa;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #d1d5db; /* Gray-300 */
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #9ca3af; /* Gray-400 */
+}
+
+/* Scroll Reveal Animation */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* Skip to content link for keyboard navigation */
