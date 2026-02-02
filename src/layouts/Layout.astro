@@ -10,6 +10,7 @@ const {
   title = "Pranav Pahuja | IT Consultant & Solutions Designer",
   description = "IT Consultant specializing in business strategy, process improvement, and data-driven solutions."
 } = Astro.props;
+import ResumeViewer from "../components/ResumeViewer";
 ---
 
 <!doctype html>
@@ -68,6 +69,7 @@ const {
   </head>
   <body class="font-grotesk bg-white text-black relative">
     <slot />
+    <ResumeViewer client:load />
     
     <script>
       document.addEventListener('DOMContentLoaded', () => {

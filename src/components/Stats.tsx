@@ -65,9 +65,9 @@ export default function Stats() {
         </div>
 
         <div className="col-span-1 flex items-center justify-center">
-          <a
-            href="/Pranav_Resume.pdf"
-            className="btn-primary w-full flex items-center justify-center gap-2 uppercase font-bold text-lg text-center no-underline"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('open-resume-modal'))}
+            className="btn-primary w-full flex items-center justify-center gap-2 uppercase font-bold text-lg text-center no-underline cursor-pointer"
           >
             <svg
               width="24"
@@ -81,7 +81,7 @@ export default function Stats() {
               <path d="M12 5v14M19 12l-7 7-7-7" />
             </svg>
             Full Profile
-          </a>
+          </button>
         </div>
       </div>
     </div>
