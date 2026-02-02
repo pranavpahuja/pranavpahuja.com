@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { X, Download, Printer, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const RESUME_URL = "/resume_cv/cv_engagement_manager.pdf";
+const RESUME_URL = "/resume_cv/cv.pdf";
 
 export default function ResumeViewer() {
   const [isOpen, setIsOpen] = useState(false);
