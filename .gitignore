@@ -8,10 +8,12 @@ node_modules/
 .astro/
 dist/
 
-# Next.js (legacy/reference)
+# Next.js / other frameworks (legacy/reference)
 .next/
 out/
 build/
+.nuxt/
+.svelte-kit/
 
 # Testing
 coverage/
@@ -53,4 +55,3 @@ next-env.d.ts
 # Temporary
 .temp/
 tmp/
-dist/index.html

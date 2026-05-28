@@ -321,6 +321,86 @@ header.scrolled nav {
 ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
 
+/* ─── Footer text overrides (prevent global h* { color:black } bleeding in) ── */
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+  color: white;
+}
+footer p {
+  color: rgba(255,255,255,0.5);
+}
+footer a {
+  color: inherit;
+}
+
+/* ─── Dark section text — force white on ALL child elements ── */
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark h5,
+.section-dark h6 {
+  color: white !important;
+}
+.section-dark p { color: rgba(255,255,255,0.62) !important; }
+
+/* ─── Mobile / All-device optimizations ─────────────── */
+@media (max-width: 640px) {
+  /* Reduce aurora opacity on mobile for perf */
+  .aurora-blob { opacity: 0.15 !important; }
+
+  /* Ensure tap targets are at least 44px */
+  a, button, [role="button"] { min-height: 44px; min-width: 44px; }
+  nav a, nav button { min-height: 44px; }
+
+  /* Readable font sizes on small screens */
+  h1 { font-size: clamp(2.5rem, 10vw, 5rem); }
+  h2 { font-size: clamp(1.8rem, 7vw, 3rem); }
+
+  /* Stats grid on mobile */
+  .progress-bar { margin-top: 6px; }
+
+  /* Marquee slightly faster on mobile */
+  .marquee-track { animation-duration: 25s; }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .animate-float,
+  .animate-float-slow,
+  .animate-slow-spin,
+  .headshot-border,
+  .cursor-spotlight { animation: none !important; }
+
+  .fade-in-section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-a1, .hero-a2, .hero-a3, .hero-a4,
+  .hero-a5, .hero-a6, .hero-a7 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+  .glass-panel { border: 2px solid ButtonText; }
+  .btn-primary { border: 2px solid ButtonText; }
+  .section-label { color: Highlight; }
+}
+
+/* ─── Print styles ───────────────────────────────────── */
+@media print {
+  .cursor-spotlight, header, footer, .marquee-track { display: none; }
+  body { background: white; color: black; }
+  .section-dark { background: white; color: black; }
+  .section-dark * { color: black !important; }
+}
+
 /* ─── Skip link ──────────────────────────────────────── */
 .skip-to-content {
   position: absolute; top: -40px; left: 0;

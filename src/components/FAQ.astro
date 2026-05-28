@@ -1,0 +1,53 @@
+---
+const faqs = [
+  {
+    q: "What does Pranav Pahuja specialize in?",
+    a: "Strategy & Digital Transformation Consulting with 6+ years at Deloitte — AI-enabled operations, process excellence, and executive engagement for Fortune 500 clients across retail, consumer, public services, and healthcare."
+  },
+  {
+    q: "What measurable results has Pranav delivered?",
+    a: "99.9% error elimination, 180+ hours saved per month, 80% fewer production failures, 50+ operational improvements across mission-critical retail workflows — all delivered for a Fortune 500 US retailer."
+  },
+  {
+    q: "Where is Pranav Pahuja based and who does he work with?",
+    a: "Based in Gurugram, Haryana, India. Works with global Fortune 500 clients including US retailers and enterprise organizations. Open to roles in India and remote USD-earning engagements."
+  },
+  {
+    q: "What are Pranav's certifications?",
+    a: "Deloitte AI Certified (ranked 3rd of 134 practitioners), Google Advanced Data Analytics Professional Certificate, and Oracle Certified Professional in Enterprise Integrations & Architecture."
+  },
+  {
+    q: "How can I hire or contact Pranav Pahuja?",
+    a: "Connect via LinkedIn (linkedin.com/in/prnvp), email prnvp@protonmail.ch, or book a call at cal.com/pranavpahuja. Open to consulting, full-time strategy roles, and advisory engagements."
+  }
+];
+---
+<section class="container mx-auto px-5 py-16 fade-in-section" aria-label="Frequently Asked Questions">
+  <div class="max-w-3xl mx-auto">
+    <span class="section-label">FAQ</span>
+    <h2 class="text-3xl md:text-4xl font-bold text-black mb-10">Common Questions</h2>
+
+    <div class="space-y-3" itemscope itemtype="https://schema.org/FAQPage">
+      {faqs.map((item, i) => (
+        <details
+          class="group glass-panel rounded-2xl overflow-hidden cursor-pointer"
+          itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"
+        >
+          <summary
+            class="flex items-center justify-between p-6 font-semibold text-black list-none select-none hover:text-green transition-colors duration-200"
+            itemprop="name"
+          >
+            <span>{item.q}</span>
+            <span class="ml-4 flex-shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-open:rotate-45 group-open:border-green group-open:text-green transition-all duration-300">+</span>
+          </summary>
+          <div
+            class="px-6 pb-6 text-gray-600 leading-relaxed text-sm border-t border-gray-50 pt-4"
+            itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"
+          >
+            <span itemprop="text">{item.a}</span>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

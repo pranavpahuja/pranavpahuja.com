@@ -1,0 +1,4 @@
+# Force HTTPS (Netlify)
+http://pranavpahuja.com/* https://pranavpahuja.com/:splat 301!
+http://www.pranavpahuja.com/* https://pranavpahuja.com/:splat 301!
+https://www.pranavpahuja.com/* https://pranavpahuja.com/:splat 301!

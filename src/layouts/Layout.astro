@@ -7,59 +7,270 @@ interface Props {
 }
 
 const {
-  title = "Pranav Pahuja | Strategy & Digital Transformation Consultant",
-  description = "Strategy & Digital Transformation Consultant with 6+ years at Deloitte, leading AI-enabled operations programs for Fortune 500 clients across retail, consumer, and healthcare sectors."
+  title = "Pranav Pahuja | Strategy & Digital Transformation Consultant | Gurugram, India",
+  description = "Strategy & Digital Transformation Consultant with 6+ years at Deloitte Consulting. Leads AI-enabled operations programs for Fortune 500 clients across retail, consumer, and healthcare. Based in Gurugram, India. 99.9% error elimination · 180+ hours/month saved · 80% fewer production failures."
 } = Astro.props;
 
+const canonicalURL = new URL(Astro.url.pathname, "https://pranavpahuja.com").href;
+const ogImage = "https://pranavpahuja.com/images/pranav-pahuja.jpg";
 import ResumeViewer from "../components/ResumeViewer";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="robots" content="index, follow" />
+
+    <!-- ── Security meta ─────────────────────────────── -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+
+    <!-- ── Core SEO ──────────────────────────────────── -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Pranav Pahuja" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="keywords" content="Strategy Consultant India, Digital Transformation Consultant Gurugram, AI Consultant Deloitte, Management Consultant India, Operations Excellence Consultant, AI Strategy Consultant, Deloitte Consultant India, Pranav Pahuja, Tech Consulting India, Enterprise AI Consultant" />
+    <link rel="canonical" href={canonicalURL} />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://pranavpahuja.com/" />
+    <!-- ── GEO / Local SEO ───────────────────────────── -->
+    <meta name="geo.region" content="IN-HR" />
+    <meta name="geo.placename" content="Gurugram, Haryana, India" />
+    <meta name="geo.position" content="28.4595;77.0266" />
+    <meta name="ICBM" content="28.4595, 77.0266" />
+
+    <!-- ── Open Graph ────────────────────────────────── -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://pranavpahuja.com/images/banner.png" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:alt" content="Pranav Pahuja — Strategy & Digital Transformation Consultant" />
+    <meta property="og:site_name" content="Pranav Pahuja" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="profile:first_name" content="Pranav" />
+    <meta property="profile:last_name" content="Pahuja" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://pranavpahuja.com/" />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="https://pranavpahuja.com/images/banner.png" />
+    <!-- ── Twitter / X Card ──────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Pranav Pahuja — Strategy & Digital Transformation Consultant" />
 
-    <link rel="canonical" href={Astro.url} />
+    <!-- ── Favicon & PWA ─────────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/pranav-pahuja.jpg" />
+    <meta name="theme-color" content="#10b981" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Pranav Pahuja" />
 
-    <!-- Schema.org -->
+    <!-- ── Performance hints ─────────────────────────── -->
+    <link rel="preconnect" href="https://cal.com" />
+    <link rel="dns-prefetch" href="https://cal.com" />
+    <link rel="preload" href="/fonts/grotesk/SpaceGrotesk-Medium.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/images/pranav-pahuja.jpg" as="image" fetchpriority="high" />
+
+    <!-- ── Rich Structured Data (SEO + GEO + AEO) ───── -->
     <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "mainEntity": {
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
           "@type": "Person",
+          "@id": "https://pranavpahuja.com/#person",
           "name": "Pranav Pahuja",
+          "givenName": "Pranav",
+          "familyName": "Pahuja",
           "jobTitle": "Strategy & Digital Transformation Consultant",
+          "description": "Strategy and Digital Transformation Consultant with 6+ years at Deloitte Consulting USI, leading AI-enabled operations programs for Fortune 500 clients across retail, consumer, public services, and healthcare sectors. Proven in owning end-to-end workstreams, eliminating errors by 99.9%, saving 180+ hours per month, and reducing production failures by 80%.",
           "url": "https://pranavpahuja.com",
-          "image": "https://pranavpahuja.com/images/pranav-pahuja.jpg",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://pranavpahuja.com/images/pranav-pahuja.jpg",
+            "width": 1200,
+            "height": 1200
+          },
+          "email": "prnvp@protonmail.ch",
+          "telephone": "+91-9530643781",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gurugram",
+            "addressRegion": "Haryana",
+            "postalCode": "122001",
+            "addressCountry": "IN"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Thapar Institute of Engineering & Technology",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Patiala",
+              "addressRegion": "Punjab",
+              "addressCountry": "IN"
+            }
+          },
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Deloitte Consulting USI",
+            "url": "https://www2.deloitte.com"
+          },
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Management Consultant",
+            "occupationLocation": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "skills": "AI Strategy, Digital Transformation, Operations Excellence, Agile/SAFe, Executive Engagement, Process Automation, Enterprise Architecture, Python, SQL, KPI Dashboarding"
+          },
+          "knowsAbout": [
+            "AI Strategy and Automation",
+            "Digital Transformation",
+            "Operations Excellence",
+            "Hypothesis-Driven Problem Solving",
+            "Enterprise Architecture",
+            "Agile SAFe Methodology",
+            "Executive Stakeholder Engagement",
+            "Process Improvement",
+            "Data-Driven Decision Making",
+            "Python Programming",
+            "SQL Analytics",
+            "Fortune 500 Consulting"
+          ],
           "sameAs": [
             "https://www.linkedin.com/in/prnvp/",
             "https://github.com/pranavpahuja"
           ],
-          "description": "Strategy & Digital Transformation Consultant with 6+ years at Deloitte, specializing in AI-enabled operations, digital transformation, and executive stakeholder engagement."
+          "nationality": {
+            "@type": "Country",
+            "name": "India"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://pranavpahuja.com/#website",
+          "url": "https://pranavpahuja.com",
+          "name": "Pranav Pahuja",
+          "description": "Official website of Pranav Pahuja — Strategy & Digital Transformation Consultant",
+          "publisher": { "@id": "https://pranavpahuja.com/#person" },
+          "inLanguage": "en-IN"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://pranavpahuja.com/#webpage",
+          "url": "https://pranavpahuja.com",
+          "name": "Pranav Pahuja | Strategy & Digital Transformation Consultant",
+          "isPartOf": { "@id": "https://pranavpahuja.com/#website" },
+          "about": { "@id": "https://pranavpahuja.com/#person" },
+          "description": "Strategy & Digital Transformation Consultant with 6+ years at Deloitte, specializing in AI-enabled operations for Fortune 500 clients. Based in Gurugram, India.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pranavpahuja.com" }]
+          },
+          "inLanguage": "en-IN",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", ".hero-desc", ".section-label"]
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://pranavpahuja.com/#service",
+          "name": "Pranav Pahuja — Strategy & Digital Transformation Consulting",
+          "description": "AI strategy, digital transformation, and operations excellence consulting for enterprise clients. 6+ years at Deloitte. Fortune 500 track record.",
+          "url": "https://pranavpahuja.com",
+          "provider": { "@id": "https://pranavpahuja.com/#person" },
+          "areaServed": [
+            { "@type": "Country", "name": "India" },
+            { "@type": "Country", "name": "United States" },
+            { "@type": "AdministrativeArea", "name": "Global" }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gurugram",
+            "addressRegion": "Haryana",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 28.4595,
+            "longitude": 77.0266
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Consulting Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Automation Strategy" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Transformation" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Operations Excellence" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Executive Engagement & Advisory" } }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What does Pranav Pahuja specialize in?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pranav Pahuja is a Strategy & Digital Transformation Consultant with 6+ years at Deloitte Consulting USI. He specializes in AI-enabled operations, process excellence, hypothesis-driven problem solving, and executive stakeholder engagement for Fortune 500 clients across retail, consumer, public services, and healthcare sectors."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What results has Pranav Pahuja delivered for clients?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pranav has eliminated errors by 99.9%, saved 180+ hours per month in manual work, reduced enterprise production failures by approximately 80%, and deployed 50+ operational improvements across mission-critical retail workflows for Fortune 500 clients."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is Pranav Pahuja based?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pranav Pahuja is based in Gurugram, Haryana, India, and works with clients globally including Fortune 500 companies in the United States, Europe, and Asia-Pacific."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What certifications does Pranav Pahuja hold?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pranav holds the Deloitte AI Certified credential (ranked 3rd out of 134 practitioners by XP earned in a 9-month program), Google Advanced Data Analytics Professional Certificate, and Oracle Certified Professional certification in Enterprise Integrations and Architecture."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I work with Pranav Pahuja?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can connect with Pranav via LinkedIn at linkedin.com/in/prnvp, email at prnvp@protonmail.ch, or book a call directly at cal.com/pranavpahuja. He is open to consulting engagements, full-time roles in strategy and digital transformation, and advisory arrangements."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What industries has Pranav Pahuja worked in?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pranav has consulting experience across retail (Fortune 500 US retailer), consumer, public services, and healthcare sectors. He has delivered enterprise integration testing, ERP transformation, AI automation, and digital transformation programs across these industries."
+              }
+            }
+          ]
         }
-      }
+      ]
+    }
     </script>
   </head>
 
@@ -72,42 +283,43 @@ import ResumeViewer from "../components/ResumeViewer";
     <ResumeViewer client:load />
 
     <script>
-      // ── Cursor spotlight ──────────────────────────────────
+      // ── Cursor spotlight ──────────────────────────────
       const spotlight = document.getElementById('cursor-spotlight');
-      if (spotlight) {
-        window.addEventListener('mousemove', (e) => {
+      if (spotlight && window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('mousemove', (e: MouseEvent) => {
           spotlight.style.left = e.clientX + 'px';
           spotlight.style.top  = e.clientY + 'px';
         }, { passive: true });
+      } else if (spotlight) {
+        spotlight.style.display = 'none';
       }
 
-      // ── Scroll reveal ─────────────────────────────────────
-      const observer = new IntersectionObserver((entries) => {
+      // ── Scroll reveal ─────────────────────────────────
+      const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+            revealObserver.unobserve(entry.target);
           }
         });
-      }, { rootMargin: '0px', threshold: 0.08 });
+      }, { rootMargin: '0px', threshold: 0.06 });
 
-      document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+      document.querySelectorAll('.fade-in-section').forEach(el => revealObserver.observe(el));
 
-      // ── Staggered children ────────────────────────────────
-      const childObserver = new IntersectionObserver((entries) => {
+      // ── Progress bars: trigger when stats in view ─────
+      const progressObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const children = entry.target.querySelectorAll('.stagger-child');
-            children.forEach((child, i) => {
-              (child as HTMLElement).style.transitionDelay = `${i * 0.08}s`;
-              child.classList.add('is-visible');
+            entry.target.querySelectorAll('.progress-bar-fill').forEach((bar: Element) => {
+              const target = (bar as HTMLElement).dataset.target || '0%';
+              (bar as HTMLElement).style.width = target;
             });
-            childObserver.unobserve(entry.target);
+            progressObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.3 });
 
-      document.querySelectorAll('.stagger-parent').forEach(el => childObserver.observe(el));
+      document.querySelectorAll('.stats-section').forEach(el => progressObserver.observe(el));
     </script>
   </body>
 </html>
