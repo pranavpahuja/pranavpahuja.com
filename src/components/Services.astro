@@ -1,77 +1,106 @@
 ---
 ---
-<section class="section-dark py-20 px-5">
+<section class="section-dark py-24 px-5">
   <div class="container mx-auto">
-    <div class="mb-12 flex items-end justify-between">
+    <div class="mb-14 flex items-end justify-between">
       <div>
         <span class="section-label">01 — Core Competencies</span>
         <h2 class="text-4xl md:text-6xl font-bold tracking-tight leading-none">
           What I Do<span style="color: #34d399">.</span>
         </h2>
       </div>
-      <div class="hidden md:block h-[1px] flex-grow bg-white/10 ml-8 mb-4"></div>
+      <div class="hidden md:block h-px flex-grow ml-8 mb-4" style="background:rgba(255,255,255,0.08)"></div>
     </div>
 
-    <div class="services-grid grid grid-cols-1 md:grid-cols-12 gap-6">
+    <div class="services-grid grid grid-cols-1 md:grid-cols-12 gap-5">
 
       <!-- Large Card: Strategy & Consulting -->
-      <div class="services-card col-span-1 md:col-span-5 glass-panel-dark rounded-[30px] p-10 relative overflow-hidden group border border-white/10">
-        <div class="relative z-10 flex flex-col justify-between h-full min-h-[280px]">
-          <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+      <div class="services-card col-span-1 md:col-span-5 rounded-[28px] p-10 relative overflow-hidden group"
+           style="background:linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03));
+                  border:1px solid rgba(255,255,255,0.13);
+                  backdrop-filter:blur(20px) saturate(150%);
+                  box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 8px 40px rgba(0,0,0,0.35)">
+        <div class="relative z-10 flex flex-col justify-between h-full min-h-[300px]">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-8"
+               style="background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
           </div>
           <div>
-            <h3 class="text-3xl font-bold text-white mb-3">Strategy & Consulting</h3>
-            <p class="text-white/60 text-lg max-w-md">Problem Structuring, Hypothesis-Driven Analysis, Workstream Governance, Executive Engagement, Agile/SAFe, Value Realization.</p>
+            <h3 class="text-3xl font-bold text-white mb-4">Strategy &<br/>Consulting</h3>
+            <p style="color:rgba(255,255,255,0.55)" class="text-base leading-relaxed max-w-sm">Problem Structuring · Hypothesis-Driven Analysis · Workstream Governance · Executive Engagement · Agile/SAFe · Value Realization.</p>
           </div>
         </div>
-        <div class="absolute top-0 right-0 w-56 h-56 rounded-full blur-[80px] -mr-16 -mt-16 transition-all duration-500 group-hover:opacity-100 opacity-40"
-             style="background: rgba(16,185,129,0.25)"></div>
+        <!-- Subtle green glow -->
+        <div class="absolute top-0 right-0 w-56 h-56 rounded-full -mr-16 -mt-16 pointer-events-none"
+             style="background:radial-gradient(circle,rgba(16,185,129,0.18),transparent 70%);
+                    transition:opacity 0.5s;opacity:0.6"
+             id="svc-glow-1"></div>
       </div>
 
-      <!-- Interactive particle constellation -->
-      <div id="services-particle-wrap" class="hidden md:flex col-span-1 md:col-span-3 items-center justify-center relative overflow-hidden min-h-[280px]">
+      <!-- Particle constellation -->
+      <div id="services-particle-wrap"
+           class="hidden md:block col-span-1 md:col-span-3 relative overflow-hidden rounded-[28px] min-h-[300px]"
+           style="background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.06)">
         <canvas id="services-particle-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        <!-- Frosted overlay at edges for depth -->
+        <div class="absolute inset-0 pointer-events-none rounded-[28px]"
+             style="background:radial-gradient(ellipse at center,transparent 40%,rgba(10,10,10,0.5) 100%)"></div>
       </div>
 
       <!-- Small Card: Analytics & Technical -->
-      <div class="services-card col-span-1 md:col-span-4 glass-panel rounded-[30px] p-10 flex flex-col justify-between min-h-[280px]">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-6 border border-white/20" style="background:rgba(255,255,255,0.07)">
+      <div class="services-card col-span-1 md:col-span-4 rounded-[28px] p-10 flex flex-col justify-between min-h-[300px]"
+           style="background:linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02));
+                  border:1px solid rgba(255,255,255,0.11);
+                  backdrop-filter:blur(20px) saturate(150%);
+                  box-shadow:inset 0 1px 0 rgba(255,255,255,0.09),0 8px 32px rgba(0,0,0,0.3)">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-8"
+             style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
         </div>
         <div>
-          <h3 class="text-2xl font-bold mb-2">Analytics & Technical</h3>
-          <p style="color:rgba(255,255,255,0.55)">Python (SME), SQL, KPI Dashboarding, Data-Driven Decision Making, Integration Architecture.</p>
+          <h3 class="text-2xl font-bold text-white mb-3">Analytics &<br/>Technical</h3>
+          <p style="color:rgba(255,255,255,0.50)" class="text-sm leading-relaxed">Python (SME) · SQL · KPI Dashboarding · Data-Driven Decisions · Integration Architecture.</p>
         </div>
       </div>
 
       <!-- Medium Card: AI & Operations -->
-      <div class="services-card col-span-1 md:col-span-5 glass-panel rounded-[30px] p-10 flex flex-col justify-between min-h-[280px]">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-6" style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3)">
+      <div class="services-card col-span-1 md:col-span-5 rounded-[28px] p-10 flex flex-col justify-between min-h-[260px]"
+           style="background:linear-gradient(145deg,rgba(16,185,129,0.12),rgba(16,185,129,0.04));
+                  border:1px solid rgba(16,185,129,0.22);
+                  backdrop-filter:blur(20px) saturate(150%);
+                  box-shadow:inset 0 1px 0 rgba(52,211,153,0.15),0 8px 32px rgba(0,0,0,0.3)">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-8"
+             style="background:rgba(16,185,129,0.18);border:1px solid rgba(16,185,129,0.35)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </div>
         <div>
-          <h3 class="text-2xl font-bold mb-2">AI & Operations</h3>
-          <p style="color:rgba(255,255,255,0.55)">AI Strategy, Process Excellence, Operational Improvement, Digital Transformation, Automation at Scale.</p>
+          <h3 class="text-2xl font-bold text-white mb-3">AI & Operations</h3>
+          <p style="color:rgba(255,255,255,0.55)" class="text-sm leading-relaxed">AI Strategy · Process Excellence · Operational Improvement · Digital Transformation · Automation at Scale.</p>
         </div>
       </div>
 
       <!-- Large Card: AI-Enabled Change -->
-      <div class="services-card col-span-1 md:col-span-7 glass-panel rounded-[30px] p-10 relative overflow-hidden group">
+      <div class="services-card col-span-1 md:col-span-7 rounded-[28px] p-10 relative overflow-hidden group min-h-[260px]"
+           style="background:linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02));
+                  border:1px solid rgba(255,255,255,0.11);
+                  backdrop-filter:blur(20px) saturate(150%);
+                  box-shadow:inset 0 1px 0 rgba(255,255,255,0.09),0 8px 32px rgba(0,0,0,0.3)">
         <div class="relative z-10 flex flex-col justify-between h-full">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-6" style="background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.25)">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-8"
+               style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.28)">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
               <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
             </svg>
           </div>
           <div>
-            <h3 class="text-3xl font-bold mb-3">AI-Enabled Change</h3>
-            <p class="text-lg max-w-lg" style="color:rgba(255,255,255,0.55)">Setting the AI agenda, ideating solutions, and overseeing deployment — translating AI investments into measurable client and firm value.</p>
+            <h3 class="text-3xl font-bold text-white mb-4">AI-Enabled Change</h3>
+            <p class="text-base max-w-lg leading-relaxed" style="color:rgba(255,255,255,0.55)">Setting the AI agenda, ideating solutions, and overseeing deployment — translating AI investments into measurable client and firm value.</p>
           </div>
         </div>
-        <div class="absolute top-0 right-0 w-64 h-64 rounded-full blur-[80px] -mr-20 -mt-20 transition-colors duration-500 opacity-20 group-hover:opacity-40"
-             style="background:#10b981"></div>
+        <div class="absolute top-0 right-0 w-72 h-72 rounded-full -mr-20 -mt-20 pointer-events-none"
+             style="background:radial-gradient(circle,rgba(16,185,129,0.14),transparent 70%);
+                    transition:opacity 0.5s;opacity:0.5"></div>
       </div>
 
     </div>
@@ -88,29 +117,34 @@
   let W = 0, H = 0;
   const mouse = { x: -999, y: -999 };
 
-  // ── Size ──────────────────────────────────────────────────
   function resize() {
     W = wrap.offsetWidth;
     H = wrap.offsetHeight;
     canvas.width  = W * devicePixelRatio;
     canvas.height = H * devicePixelRatio;
     ctx.scale(devicePixelRatio, devicePixelRatio);
+    // Re-seed inside bounds
+    for (const p of pts) {
+      if (p.x > W) p.x = Math.random() * W;
+      if (p.y > H) p.y = Math.random() * H;
+    }
   }
+
+  // ── Particles ─────────────────────────────────────────
+  const N = 68;
+  const pts = Array.from({ length: N }, () => ({
+    x:  Math.random() * 400,
+    y:  Math.random() * 400,
+    vx: (Math.random() - 0.5) * 0.30,
+    vy: (Math.random() - 0.5) * 0.30,
+    r:  Math.random() * 1.8 + 0.9,
+    a:  Math.random() * 0.55 + 0.30,
+  }));
+
   resize();
   window.addEventListener('resize', resize, { passive: true });
 
-  // ── Particles ─────────────────────────────────────────────
-  const N = 52;
-  const pts = Array.from({ length: N }, () => ({
-    x:  Math.random() * W,
-    y:  Math.random() * H,
-    vx: (Math.random() - 0.5) * 0.28,
-    vy: (Math.random() - 0.5) * 0.28,
-    r:  Math.random() * 1.4 + 0.7,
-    a:  Math.random() * 0.45 + 0.25,
-  }));
-
-  // ── Mouse ─────────────────────────────────────────────────
+  // ── Mouse ─────────────────────────────────────────────
   wrap.addEventListener('mousemove', (e: MouseEvent) => {
     const r = canvas.getBoundingClientRect();
     mouse.x = e.clientX - r.left;
@@ -118,23 +152,22 @@
   }, { passive: true });
   wrap.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
 
-  // ── Loop ──────────────────────────────────────────────────
+  // ── Loop ──────────────────────────────────────────────
   function tick() {
     requestAnimationFrame(tick);
     ctx.clearRect(0, 0, W, H);
 
     for (const p of pts) {
-      // Repulsion
       const dx = p.x - mouse.x;
       const dy = p.y - mouse.y;
       const d2 = dx * dx + dy * dy;
-      if (d2 < 7000 && d2 > 0) {
+      if (d2 < 9000 && d2 > 0) {
         const d = Math.sqrt(d2);
-        const f = (84 - d) / 84 * 0.55;
+        const f = (95 - d) / 95 * 0.62;
         p.vx += (dx / d) * f;
         p.vy += (dy / d) * f;
       }
-      p.vx *= 0.965; p.vy *= 0.965;
+      p.vx *= 0.962; p.vy *= 0.962;
       p.x  += p.vx;  p.y  += p.vy;
       if (p.x < 0) p.x = W; else if (p.x > W) p.x = 0;
       if (p.y < 0) p.y = H; else if (p.y > H) p.y = 0;
@@ -146,19 +179,30 @@
         const dx = pts[i].x - pts[j].x;
         const dy = pts[i].y - pts[j].y;
         const d  = Math.sqrt(dx * dx + dy * dy);
-        if (d < 105) {
+        if (d < 130) {
+          const a = (1 - d / 130) * 0.45;
           ctx.beginPath();
           ctx.moveTo(pts[i].x, pts[i].y);
           ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.strokeStyle = `rgba(16,185,129,${(1 - d / 105) * 0.30})`;
-          ctx.lineWidth = 0.7;
+          ctx.strokeStyle = `rgba(16,185,129,${a})`;
+          ctx.lineWidth = 0.9;
           ctx.stroke();
         }
       }
     }
 
-    // Dots
+    // Dots with glow
     for (const p of pts) {
+      // Outer glow
+      const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4.5);
+      grd.addColorStop(0, `rgba(52,211,153,${p.a * 0.38})`);
+      grd.addColorStop(1, 'rgba(52,211,153,0)');
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 4.5, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
+      ctx.fill();
+
+      // Solid dot
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(52,211,153,${p.a})`;

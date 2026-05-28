@@ -1,27 +1,29 @@
 ---
 ---
-<section class="section-dark">
-  <div class="container mx-auto px-5 py-24">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
+<section class="section-dark py-24">
+  <div class="container mx-auto px-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
 
-      <div class="flex flex-col justify-between">
-        <div>
+      <!-- Left: Text + Orbital -->
+      <div class="flex flex-col">
+        <div class="mb-auto">
           <span class="section-label">05 — Working Together</span>
           <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
             How I<br/>Engage<span style="color:#34d399">.</span>
           </h2>
-          <p style="color:rgba(255,255,255,0.55)" class="text-lg max-w-sm">
+          <p style="color:rgba(255,255,255,0.50)" class="text-lg max-w-sm leading-relaxed">
             Flexible models designed to fit your enterprise needs — from advisory to full-scale delivery.
           </p>
         </div>
 
-        <!-- Orbital animation -->
-        <div id="engagement-orbit-wrap" class="relative w-full h-[260px] mt-10">
+        <!-- Orbital animation — takes up the visual real-estate below text -->
+        <div id="engagement-orbit-wrap" class="relative w-full mt-10" style="height:380px">
           <canvas id="engagement-orbit-canvas" class="absolute inset-0 w-full h-full"></canvas>
         </div>
       </div>
 
-      <div class="engagement-list grid grid-cols-1 gap-3">
+      <!-- Right: Engagement list -->
+      <div class="engagement-list flex flex-col gap-3 justify-center">
         {[
           'Senior-led, hands-on engagements',
           'Hypothesis-driven problem framing',
@@ -30,13 +32,16 @@
           'Cross-functional coordination & PI Planning',
           'Confidential, enterprise-grade delivery',
         ].map(item => (
-          <div class="engagement-item group flex items-center justify-between p-5 rounded-2xl transition-all duration-300 cursor-default"
-               style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07);"
-               onmouseenter="this.style.background='rgba(16,185,129,0.08)'; this.style.borderColor='rgba(16,185,129,0.25)'"
-               onmouseleave="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,255,255,0.07)'">
+          <div class="engagement-item group flex items-center justify-between p-5 rounded-2xl cursor-default transition-all duration-300"
+               style="background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
+                      border:1px solid rgba(255,255,255,0.10);
+                      backdrop-filter:blur(16px);
+                      box-shadow:inset 0 1px 0 rgba(255,255,255,0.07)"
+               onmouseenter="this.style.background='linear-gradient(135deg,rgba(16,185,129,0.12),rgba(16,185,129,0.04))';this.style.borderColor='rgba(16,185,129,0.30)'"
+               onmouseleave="this.style.background='linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))';this.style.borderColor='rgba(255,255,255,0.10)'">
             <span class="text-base font-semibold text-white/85">{item}</span>
             <span class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ml-4 opacity-0 group-hover:opacity-100 transition-opacity"
-                  style="background:rgba(16,185,129,0.2); color:#34d399">→</span>
+                  style="background:rgba(16,185,129,0.2);color:#34d399">→</span>
           </div>
         ))}
       </div>
@@ -64,12 +69,11 @@
   resize();
   window.addEventListener('resize', resize, { passive: true });
 
-  // ── Orbital rings definition ───────────────────────────────
-  // tilt = y-scale of ellipse (gives 3D perspective feel)
+  // ── Three orbital rings ────────────────────────────────
   const rings = [
-    { a: 0,     speed:  0.014, dotCount: 2, dotR: 3.5, tilt: 0.38 },
-    { a: 1.1,   speed: -0.008, dotCount: 3, dotR: 2.8, tilt: 0.24 },
-    { a: 0.55,  speed:  0.005, dotCount: 5, dotR: 2.2, tilt: 0.16 },
+    { a: 0,     speed:  0.014, dotCount: 2, dotR: 5.0, tilt: 0.38 },
+    { a: 1.1,   speed: -0.008, dotCount: 3, dotR: 4.0, tilt: 0.24 },
+    { a: 0.55,  speed:  0.005, dotCount: 5, dotR: 3.0, tilt: 0.16 },
   ];
 
   let hovered  = false;
@@ -84,17 +88,17 @@
     requestAnimationFrame(tick);
     ctx.clearRect(0, 0, W, H);
 
-    // Smoothly ramp speed on hover
     const target  = hovered ? 2.8 : 1;
     speedMul += (target - speedMul) * 0.05;
     t        += 0.01 * speedMul;
 
-    const cx = W * 0.38;   // slightly left of center so list text has room
-    const cy = H * 0.55;
-    const maxR = Math.min(W * 0.32, H * 0.42);
+    // ── Centre offset: slightly left so orbital doesn't fight list ──
+    const cx = W * 0.46;
+    const cy = H * 0.52;
 
-    // Radii spaced out
-    const radii = [maxR * 0.38, maxR * 0.65, maxR];
+    // ── Generous radii — fill the tall container ──────────
+    const maxR = Math.min(W * 0.40, H * 0.44);
+    const radii = [maxR * 0.36, maxR * 0.63, maxR];
 
     for (let ri = 0; ri < rings.length; ri++) {
       const ring = rings[ri];
@@ -104,8 +108,8 @@
       // Ring ellipse
       ctx.beginPath();
       ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(16,185,129,0.15)';
-      ctx.lineWidth   = 0.9;
+      ctx.strokeStyle = 'rgba(16,185,129,0.20)';
+      ctx.lineWidth   = 1.0;
       ctx.stroke();
 
       // Orbiting dots
@@ -113,21 +117,21 @@
         const angle = t * ring.speed * 80 + ring.a + (d / ring.dotCount) * Math.PI * 2;
         const x = cx + Math.cos(angle) * rx;
         const y = cy + Math.sin(angle) * ry;
-        // depth: sin of angle mapped to opacity + size
-        const depth = Math.sin(angle);
-        const alpha = 0.28 + ((depth + 1) / 2) * 0.62;
-        const r     = ring.dotR * (0.65 + ((depth + 1) / 2) * 0.55);
 
-        // Soft glow around dot
-        const grd = ctx.createRadialGradient(x, y, 0, x, y, r * 3.5);
-        grd.addColorStop(0, `rgba(52,211,153,${alpha * 0.45})`);
+        const depth = Math.sin(angle);
+        const alpha = 0.30 + ((depth + 1) / 2) * 0.62;
+        const r     = ring.dotR * (0.6 + ((depth + 1) / 2) * 0.60);
+
+        // Glow
+        const grd = ctx.createRadialGradient(x, y, 0, x, y, r * 4.0);
+        grd.addColorStop(0, `rgba(52,211,153,${alpha * 0.50})`);
         grd.addColorStop(1, 'rgba(52,211,153,0)');
         ctx.beginPath();
-        ctx.arc(x, y, r * 3.5, 0, Math.PI * 2);
+        ctx.arc(x, y, r * 4.0, 0, Math.PI * 2);
         ctx.fillStyle = grd;
         ctx.fill();
 
-        // Solid dot
+        // Core dot
         ctx.beginPath();
         ctx.arc(x, y, r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(52,211,153,${alpha})`;
@@ -135,17 +139,19 @@
       }
     }
 
-    // Centre node
-    const cgrd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 6);
-    cgrd.addColorStop(0, 'rgba(52,211,153,0.7)');
+    // ── Centre node ────────────────────────────────────────
+    const pulse = 0.85 + Math.sin(t * 2.5) * 0.12;
+    const cgrd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 10 * pulse);
+    cgrd.addColorStop(0, 'rgba(52,211,153,0.80)');
     cgrd.addColorStop(1, 'rgba(52,211,153,0)');
     ctx.beginPath();
-    ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+    ctx.arc(cx, cy, 10 * pulse, 0, Math.PI * 2);
     ctx.fillStyle = cgrd;
     ctx.fill();
+
     ctx.beginPath();
-    ctx.arc(cx, cy, 2.5, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(52,211,153,0.85)';
+    ctx.arc(cx, cy, 3.5 * pulse, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(52,211,153,0.95)';
     ctx.fill();
   }
 

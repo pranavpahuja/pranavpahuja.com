@@ -1,60 +1,75 @@
 ---
 ---
-<section class="section-dark py-20">
+<section class="section-dark py-24">
   <div class="container mx-auto px-5">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
 
       <!-- Left: Content Card -->
-      <div class="col-span-1 md:col-span-7 rounded-[40px] p-10 md:p-14 relative overflow-hidden"
-           style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);">
+      <div class="col-span-1 md:col-span-7 rounded-[32px] p-10 md:p-14 relative overflow-hidden"
+           style="background:linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));
+                  border:1px solid rgba(255,255,255,0.14);
+                  backdrop-filter:blur(24px) saturate(150%);
+                  box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 16px 48px rgba(0,0,0,0.35)">
 
         <span class="section-label">03 — Credentials</span>
         <h3 class="text-3xl md:text-5xl font-bold text-white mb-12 flex items-center gap-3">
-          Certifications <span class="w-3 h-3 rounded-full animate-pulse flex-shrink-0" style="background:#10b981"></span>
+          Certifications
+          <span class="w-2.5 h-2.5 rounded-full flex-shrink-0 animate-pulse" style="background:#10b981;box-shadow:0 0 8px rgba(16,185,129,0.6)"></span>
         </h3>
 
         <div class="space-y-8 max-w-xl relative z-10">
           <!-- Item 1 -->
           <div class="group flex gap-6 hover:translate-x-2 transition-transform duration-300">
-            <div class="w-[3px] rounded-full flex-shrink-0 transition-colors duration-300"
-                 style="background:rgba(255,255,255,0.15); min-height: 60px;"
+            <div class="w-0.5 rounded-full flex-shrink-0 self-stretch transition-colors duration-300"
+                 style="background:rgba(255,255,255,0.15); min-height:60px"
                  onmouseenter="this.style.background='#10b981'" onmouseleave="this.style.background='rgba(255,255,255,0.15)'"></div>
             <div>
               <span class="text-xs font-bold tracking-widest uppercase mb-1 block" style="color:#34d399">Deloitte AI Certified</span>
               <h4 class="text-xl font-bold text-white mb-1">Deloitte AI Academy</h4>
-              <p style="color:rgba(255,255,255,0.55); font-size:0.9rem; line-height:1.6">9-month program of learning, testing & capstone delivery — ranked <strong class="text-white">3rd out of 134 practitioners</strong> by XP earned</p>
+              <p style="color:rgba(255,255,255,0.50); font-size:0.9rem; line-height:1.6">9-month program — ranked <strong class="text-white">3rd out of 134 practitioners</strong> by XP earned</p>
             </div>
           </div>
 
           <!-- Item 2 -->
           <div class="group flex gap-6 hover:translate-x-2 transition-transform duration-300">
-            <div class="w-[3px] rounded-full flex-shrink-0 transition-colors duration-300"
-                 style="background:rgba(255,255,255,0.15); min-height: 60px;"
+            <div class="w-0.5 rounded-full flex-shrink-0 self-stretch transition-colors duration-300"
+                 style="background:rgba(255,255,255,0.15); min-height:60px"
                  onmouseenter="this.style.background='#10b981'" onmouseleave="this.style.background='rgba(255,255,255,0.15)'"></div>
             <div>
               <span class="text-xs font-bold tracking-widest uppercase mb-1 block" style="color:#34d399">Certified</span>
               <h4 class="text-xl font-bold text-white mb-1">Google Advanced Data Analytics</h4>
-              <p style="color:rgba(255,255,255,0.55); font-size:0.9rem; line-height:1.6">Professional Certificate — Statistical Modeling & Machine Learning</p>
+              <p style="color:rgba(255,255,255,0.50); font-size:0.9rem; line-height:1.6">Professional Certificate — Statistical Modeling & Machine Learning</p>
             </div>
           </div>
 
           <!-- Item 3 -->
           <div class="group flex gap-6 hover:translate-x-2 transition-transform duration-300">
-            <div class="w-[3px] rounded-full flex-shrink-0 transition-colors duration-300"
-                 style="background:rgba(255,255,255,0.15); min-height: 60px;"
+            <div class="w-0.5 rounded-full flex-shrink-0 self-stretch transition-colors duration-300"
+                 style="background:rgba(255,255,255,0.15); min-height:60px"
                  onmouseenter="this.style.background='#10b981'" onmouseleave="this.style.background='rgba(255,255,255,0.15)'"></div>
             <div>
               <span class="text-xs font-bold tracking-widest uppercase mb-1 block" style="color:#34d399">Certified</span>
               <h4 class="text-xl font-bold text-white mb-1">Oracle Certified Professional</h4>
-              <p style="color:rgba(255,255,255,0.55); font-size:0.9rem; line-height:1.6">Enterprise Integrations, Architecture & Systems</p>
+              <p style="color:rgba(255,255,255,0.50); font-size:0.9rem; line-height:1.6">Enterprise Integrations, Architecture & Systems</p>
             </div>
           </div>
         </div>
+
+        <!-- Ambient corner glow -->
+        <div class="absolute -bottom-16 -right-16 w-64 h-64 rounded-full pointer-events-none"
+             style="background:radial-gradient(circle,rgba(16,185,129,0.12),transparent 70%)"></div>
       </div>
 
       <!-- Right: Wireframe icosahedron -->
-      <div id="certs-wire-wrap" class="col-span-1 md:col-span-5 flex justify-center items-center h-[400px] relative">
+      <div id="certs-wire-wrap"
+           class="col-span-1 md:col-span-5 relative rounded-[32px] overflow-hidden"
+           style="height:460px;
+                  background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));
+                  border:1px solid rgba(255,255,255,0.08)">
         <canvas id="certs-wire-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        <!-- Subtle radial vignette -->
+        <div class="absolute inset-0 pointer-events-none"
+             style="background:radial-gradient(ellipse at center,transparent 38%,rgba(10,10,10,0.55) 100%)"></div>
       </div>
 
     </div>
@@ -87,7 +102,6 @@
     [1,phi,0],[-1,phi,0],[1,-phi,0],[-1,-phi,0],
     [phi,0,1],[-phi,0,1],[phi,0,-1],[-phi,0,-1],
   ];
-  // Normalise to unit sphere
   const verts = raw.map(([x,y,z]) => {
     const len = Math.sqrt(x*x + y*y + z*z);
     return [x/len, y/len, z/len] as [number,number,number];
@@ -104,7 +118,6 @@
     [8,10],[9,11],
   ];
 
-  // ── Rotation helpers ──────────────────────────────────────
   function rotY([x,y,z]: [number,number,number], a: number): [number,number,number] {
     return [x*Math.cos(a) + z*Math.sin(a), y, -x*Math.sin(a) + z*Math.cos(a)];
   }
@@ -116,8 +129,8 @@
   let tiltX = 0, tiltY = 0, targetTX = 0, targetTY = 0;
   wrap.addEventListener('mousemove', (e: MouseEvent) => {
     const r = canvas.getBoundingClientRect();
-    targetTX = ((e.clientY - r.top)  / H - 0.5) *  0.55;
-    targetTY = ((e.clientX - r.left) / W - 0.5) * -0.55;
+    targetTX = ((e.clientY - r.top)  / H - 0.5) *  0.65;
+    targetTY = ((e.clientX - r.left) / W - 0.5) * -0.65;
   }, { passive: true });
   wrap.addEventListener('mouseleave', () => { targetTX = 0; targetTY = 0; });
 
@@ -131,16 +144,15 @@
     tiltX += (targetTX - tiltX) * 0.06;
     tiltY += (targetTY - tiltY) * 0.06;
 
-    const scale = Math.min(W, H) * 0.36;
+    // ── Larger scale — fills the canvas panel ─────────────
+    const scale = Math.min(W, H) * 0.44;
     const cx = W / 2, cy = H / 2;
 
-    // Project all verts
     const proj = verts.map(v => {
       const [x, y, z] = rotX(rotY(v, t + tiltY), tiltX);
       return { sx: cx + x * scale, sy: cy - y * scale, z };
     });
 
-    // Sort edges back-to-front for painter's algorithm
     const sorted = [...edges].sort((a, b) => {
       const az = (proj[a[0]].z + proj[a[1]].z) / 2;
       const bz = (proj[b[0]].z + proj[b[1]].z) / 2;
@@ -150,8 +162,8 @@
     // Draw edges
     for (const [i, j] of sorted) {
       const avgZ = (proj[i].z + proj[j].z) / 2;
-      const alpha = 0.05 + ((avgZ + 1) / 2) * 0.65;
-      const lw    = 0.7 + ((avgZ + 1) / 2) * 0.8;
+      const alpha = 0.08 + ((avgZ + 1) / 2) * 0.72;
+      const lw    = 0.8 + ((avgZ + 1) / 2) * 1.0;
       ctx.beginPath();
       ctx.moveTo(proj[i].sx, proj[i].sy);
       ctx.lineTo(proj[j].sx, proj[j].sy);
@@ -160,10 +172,20 @@
       ctx.stroke();
     }
 
-    // Draw vertices
+    // Draw vertices with glow
     for (const p of proj) {
-      const alpha = 0.15 + ((p.z + 1) / 2) * 0.60;
-      const r     = 1.4  + ((p.z + 1) / 2) * 2.0;
+      const alpha = 0.20 + ((p.z + 1) / 2) * 0.70;
+      const r     = 1.8  + ((p.z + 1) / 2) * 2.8;
+
+      // Glow halo
+      const grd = ctx.createRadialGradient(p.sx, p.sy, 0, p.sx, p.sy, r * 3.5);
+      grd.addColorStop(0, `rgba(52,211,153,${alpha * 0.40})`);
+      grd.addColorStop(1, 'rgba(52,211,153,0)');
+      ctx.beginPath();
+      ctx.arc(p.sx, p.sy, r * 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
+      ctx.fill();
+
       ctx.beginPath();
       ctx.arc(p.sx, p.sy, r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(16,185,129,${alpha})`;
