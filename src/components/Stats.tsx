@@ -41,7 +41,7 @@ export default function Stats() {
 
   return (
     <div ref={sectionRef} className="container mx-auto px-5 mt-5">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 glass-panel rounded-[30px] p-8 text-black">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 glass-panel rounded-[30px] p-8 text-black">
 
         <div className="col-span-1">
           <div className="flex items-center gap-4">
