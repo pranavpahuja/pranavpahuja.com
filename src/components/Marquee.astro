@@ -1,0 +1,36 @@
+---
+---
+<div class="section-dark py-6 overflow-hidden select-none">
+  <div class="marquee-track">
+    <!-- First copy -->
+    <span class="flex items-center">
+      {[
+        'AI Strategy', 'Digital Transformation', 'Deloitte Consulting', 'Fortune 500',
+        'Process Excellence', 'Python SME', 'Agile / SAFe', 'Value Realization',
+        'Operations Excellence', 'Enterprise Architecture', 'Executive Engagement',
+        '99.9% Error Reduction', '180+ Hours Saved', 'Hypothesis-Driven Analysis',
+        'AI-Enabled Change', 'Workstream Governance',
+      ].map(item => (
+        <span class="flex items-center gap-5 px-3">
+          <span class="text-sm font-bold tracking-[0.18em] uppercase text-white/80 hover:text-green-light transition-colors duration-200">{item}</span>
+          <span class="text-green-light text-xs opacity-60">✦</span>
+        </span>
+      ))}
+    </span>
+    <!-- Second copy for seamless loop -->
+    <span class="flex items-center" aria-hidden="true">
+      {[
+        'AI Strategy', 'Digital Transformation', 'Deloitte Consulting', 'Fortune 500',
+        'Process Excellence', 'Python SME', 'Agile / SAFe', 'Value Realization',
+        'Operations Excellence', 'Enterprise Architecture', 'Executive Engagement',
+        '99.9% Error Reduction', '180+ Hours Saved', 'Hypothesis-Driven Analysis',
+        'AI-Enabled Change', 'Workstream Governance',
+      ].map(item => (
+        <span class="flex items-center gap-5 px-3">
+          <span class="text-sm font-bold tracking-[0.18em] uppercase text-white/80">{item}</span>
+          <span class="text-green-light text-xs opacity-60">✦</span>
+        </span>
+      ))}
+    </span>
+  </div>
+</div>

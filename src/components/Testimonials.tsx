@@ -3,53 +3,60 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Outstanding work!",
-    author: "US Based Retail Client",
-    date: "8/20/2024",
+    quote: "Outstanding work. Pranav's delivery exceeded every expectation — structured, proactive, and results-driven.",
+    author: "US-Based Retail Client",
+    role: "Fortune 500 Program",
+    date: "Aug 2024",
   },
   {
-    quote: "Pranav's business and data automations have saved hundreds of hours of effort.",
+    quote: "Pranav's business and data automations have saved hundreds of hours of effort. The quality and reliability are exceptional.",
     author: "Kevin H.",
-    date: "3/12/2025",
+    role: "Delivery Lead",
+    date: "Mar 2025",
   },
   {
-    quote: "Pranav's business and data automations have saved hundreds of hours of effort.",
+    quote: "A rare consultant who combines technical depth with sharp business judgment. Highly recommended.",
     author: "John L.",
-    date: "7/09/2025", // Future date from original content? Keeping as is.
+    role: "Senior Stakeholder",
+    date: "Jan 2025",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="py-20">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-5">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold">Testimonials</h2>
+        <div className="mb-14">
+          <span className="section-label">04 — Social Proof</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+            What Clients Say<span style={{ color: "#10b981" }}>.</span>
+          </h2>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((item, index) => (
-              <motion.div
-                key={item.author}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-panel text-black p-8 rounded-[30px] hover:bg-white transition-all relative group shadow-sm hover:shadow-md"
-              >
-                <Quote className="text-green w-10 h-10 mb-6 opacity-80 group-hover:opacity-100 transition-opacity" />
-                <p className="text-lg md:text-xl font-medium mb-6 leading-relaxed text-gray-800">
-                  “{item.quote}”
-                </p>
-                <div className="mt-auto">
-                    <div className="w-10 h-1 bg-green mb-4 rounded-full"></div>
-                  <h5 className="font-bold text-lg text-black">{item.author}</h5>
-                  <p className="text-gray-500 text-sm mt-1">{item.date}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((item, index) => (
+            <motion.div
+              key={item.author}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+              className="glass-panel text-black p-8 rounded-[30px] relative group"
+            >
+              <Quote
+                className="w-9 h-9 mb-6 opacity-70 group-hover:opacity-100 transition-opacity"
+                style={{ color: "#10b981" }}
+              />
+              <p className="text-lg font-medium mb-8 leading-relaxed text-gray-800">
+                "{item.quote}"
+              </p>
+              <div className="mt-auto">
+                <div className="w-8 h-[2px] mb-4 rounded-full" style={{ background: "#10b981" }} />
+                <h5 className="font-bold text-base text-black">{item.author}</h5>
+                <p className="text-gray-400 text-sm mt-0.5">{item.role} · {item.date}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

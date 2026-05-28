@@ -2,75 +2,87 @@
 import { Image } from 'astro:assets';
 import fluidImage from '../assets/images/iridescent_chrome_abstract_fluid.png';
 ---
-<section class="p-5 md:py-20 container mx-auto">
-  <div class="mb-12 flex items-end justify-between">
-    <h2 class="text-4xl md:text-6xl font-bold text-black tracking-tight leading-none">
-      Core Competencies<span class="text-green">.</span>
-    </h2>
-    <div class="hidden md:block h-[1px] flex-grow bg-gray-100 ml-8 mb-4"></div>
-  </div>
+<section class="section-dark py-20 px-5 fade-in-section">
+  <div class="container mx-auto">
+    <div class="mb-12 flex items-end justify-between">
+      <div>
+        <span class="section-label">01 — Core Competencies</span>
+        <h2 class="text-4xl md:text-6xl font-bold tracking-tight leading-none">
+          What I Do<span style="color: #34d399">.</span>
+        </h2>
+      </div>
+      <div class="hidden md:block h-[1px] flex-grow bg-white/10 ml-8 mb-4"></div>
+    </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-    
-    <!-- Large Card: Consulting & Leadership -->
-    <div class="col-span-1 md:col-span-5 glass-panel-dark rounded-[30px] p-10 relative overflow-hidden group">
-       <div class="relative z-10 flex flex-col justify-between h-full min-h-[280px]">
-          <div class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center mb-6">
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+      <!-- Large Card: Strategy & Consulting -->
+      <div class="col-span-1 md:col-span-5 glass-panel-dark rounded-[30px] p-10 relative overflow-hidden group border border-white/10">
+        <div class="relative z-10 flex flex-col justify-between h-full min-h-[280px]">
+          <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
           </div>
           <div>
-            <h3 class="text-3xl font-bold !text-white mb-3">Strategy & Consulting</h3>
-            <p class="!text-gray-300 text-lg max-w-md">Problem Structuring, Hypothesis-Driven Analysis, Workstream Governance, Executive Engagement, Agile/SAFe, Value Realization.</p>
+            <h3 class="text-3xl font-bold text-white mb-3">Strategy & Consulting</h3>
+            <p class="text-white/60 text-lg max-w-md">Problem Structuring, Hypothesis-Driven Analysis, Workstream Governance, Executive Engagement, Agile/SAFe, Value Realization.</p>
           </div>
-       </div>
-    </div>
+        </div>
+        <!-- Emerald glow -->
+        <div class="absolute top-0 right-0 w-56 h-56 rounded-full blur-[80px] -mr-16 -mt-16 transition-all duration-500 group-hover:opacity-100 opacity-40"
+             style="background: rgba(16,185,129,0.25)"></div>
+      </div>
 
-    <!-- Floating Shape Cell -->
-    <div class="hidden md:flex col-span-1 md:col-span-3 items-center justify-center relative">
-        <div class="absolute inset-0 bg-gradient-to-tr from-green/20 to-purple/20 rounded-full blur-[60px] opacity-30"></div>
-        <Image 
-            src={fluidImage} 
-            class="w-[140%] h-auto object-contain animate-float z-10 mix-blend-multiply" 
-            alt="Decoration" 
-            style="mask-image: radial-gradient(closest-side, black 60%, transparent 100%); -webkit-mask-image: radial-gradient(closest-side, black 60%, transparent 100%);"
+      <!-- Floating shape -->
+      <div class="hidden md:flex col-span-1 md:col-span-3 items-center justify-center relative">
+        <div class="absolute inset-0 rounded-full blur-[60px] opacity-20" style="background: radial-gradient(circle, #10b981, #3b82f6)"></div>
+        <Image
+          src={fluidImage}
+          class="w-[140%] h-auto object-contain animate-float z-10 mix-blend-screen opacity-80"
+          alt="Decoration"
+          style="mask-image: radial-gradient(closest-side, black 60%, transparent 100%); -webkit-mask-image: radial-gradient(closest-side, black 60%, transparent 100%);"
         />
-    </div>
+      </div>
 
-    <!-- Small Card: Technical Core -->
-    <div class="col-span-1 md:col-span-4 glass-panel rounded-[30px] p-10 flex flex-col justify-between min-h-[280px]">
-        <div class="w-12 h-12 bg-gray-50 text-black border border-gray-100 rounded-full flex items-center justify-center mb-6">
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+      <!-- Small Card: Analytics & Technical -->
+      <div class="col-span-1 md:col-span-4 glass-panel rounded-[30px] p-10 flex flex-col justify-between min-h-[280px]">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-6 border border-white/20" style="background:rgba(255,255,255,0.07)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
         </div>
         <div>
-           <h3 class="text-2xl font-bold text-black mb-2">Analytics & Technical</h3>
-           <p class="text-gray-500">Python (SME), SQL, KPI Dashboarding, Data-Driven Decision Making, Integration Architecture.</p>
+          <h3 class="text-2xl font-bold mb-2">Analytics & Technical</h3>
+          <p style="color:rgba(255,255,255,0.55)">Python (SME), SQL, KPI Dashboarding, Data-Driven Decision Making, Integration Architecture.</p>
         </div>
-    </div>
+      </div>
 
-    <!-- Medium Card: Digital Strategy -->
-    <div class="col-span-1 md:col-span-5 glass-panel rounded-[30px] p-10 flex flex-col justify-between min-h-[280px]">
-        <div class="w-12 h-12 bg-gray-50 text-black border border-gray-100 rounded-full flex items-center justify-center mb-6">
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
+      <!-- Medium Card: AI & Operations -->
+      <div class="col-span-1 md:col-span-5 glass-panel rounded-[30px] p-10 flex flex-col justify-between min-h-[280px]">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-6" style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </div>
         <div>
-           <h3 class="text-2xl font-bold text-black mb-2">AI & Operations</h3>
-           <p class="text-gray-500">AI Strategy, Process Excellence, Operational Improvement, Digital Transformation, Automation at Scale.</p>
+          <h3 class="text-2xl font-bold mb-2">AI & Operations</h3>
+          <p style="color:rgba(255,255,255,0.55)">AI Strategy, Process Excellence, Operational Improvement, Digital Transformation, Automation at Scale.</p>
         </div>
-    </div>
+      </div>
 
-    <!-- Large Card: AI & Analytics -->
-    <div class="col-span-1 md:col-span-7 glass-panel rounded-[30px] p-10 relative overflow-hidden group">
+      <!-- Large Card: AI & Analytics -->
+      <div class="col-span-1 md:col-span-7 glass-panel rounded-[30px] p-10 relative overflow-hidden group">
         <div class="relative z-10 flex flex-col justify-between h-full">
-            <div class="w-12 h-12 bg-green/20 text-black/80 rounded-full flex items-center justify-center mb-6">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/><line x1="3.27" y1="16.96" x2="12" y2="11.96"/><line x1="20.73" y1="16.96" x2="12" y2="11.96"/></svg>
-            </div>
-            <div>
-              <h3 class="text-3xl font-bold text-black mb-3">AI & Analytics</h3>
-              <p class="text-gray-600 text-lg max-w-lg">Setting the AI agenda, ideating solutions, and overseeing deployment — translating AI investments into measurable client and firm value.</p>
-            </div>
-         </div>
-         <div class="absolute top-0 right-0 w-64 h-64 bg-green/10 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-green/20 transition-colors duration-500"></div>
-    </div>
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-6" style="background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.25)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-3xl font-bold mb-3">AI-Enabled Change</h3>
+            <p class="text-lg max-w-lg" style="color:rgba(255,255,255,0.55)">Setting the AI agenda, ideating solutions, and overseeing deployment — translating AI investments into measurable client and firm value.</p>
+          </div>
+        </div>
+        <div class="absolute top-0 right-0 w-64 h-64 rounded-full blur-[80px] -mr-20 -mt-20 transition-colors duration-500 opacity-20 group-hover:opacity-40"
+             style="background:#10b981"></div>
+      </div>
 
+    </div>
   </div>
 </section>

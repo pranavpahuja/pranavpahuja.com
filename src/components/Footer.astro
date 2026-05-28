@@ -1,63 +1,89 @@
-<footer class="bg-black text-white mt-32 py-20 rounded-t-[40px]">
+---
+---
+<!-- Gradient bridge: white → dark -->
+<div class="h-24 w-full pointer-events-none" style="background: linear-gradient(to bottom, #ffffff, #0a0a0a)"></div>
+
+<footer class="bg-dark text-white pt-16 pb-10 rounded-t-[0px]">
   <div class="container mx-auto px-5">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
-      
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+
       <!-- Brand & Bio -->
-      <div class="md:col-span-5 space-y-8">
+      <div class="md:col-span-5 space-y-7">
         <a href="/" class="block">
           <svg width="220" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
             <text x="0" y="30" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="28" fill="#ffffff">PranavPahuja.</text>
           </svg>
         </a>
-        <p class="!text-gray-300 leading-relaxed max-w-sm text-lg">
-          Engagement Lead & Strategy Consultant. Designing intelligent, scalable enterprise systems for the digital future.
+        <p class="text-white/55 leading-relaxed max-w-sm text-base">
+          Strategy & Digital Transformation Consultant. 6+ years at Deloitte leading AI-enabled operations for Fortune 500 clients.
         </p>
-        <div class="flex gap-4">
-           <!-- LinkedIn -->
-           <a href="https://linkedin.com/in/prnvp" target="_blank" rel="noopener noreferrer" class="p-4 rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-all duration-300" aria-label="LinkedIn">
-             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-           </a>
-           <!-- GitHub -->
-           <a href="https://github.com/pranavpahuja" target="_blank" rel="noopener noreferrer" class="p-4 rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-all duration-300" aria-label="GitHub">
-             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-           </a>
-           <!-- Email -->
-            <a href="mailto:prnvp@protonmail.ch" class="p-4 rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-all duration-300" aria-label="Email">
-             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-           </a>
+        <div class="flex gap-3">
+          <a href="https://linkedin.com/in/prnvp" target="_blank" rel="noopener noreferrer"
+             class="p-3.5 rounded-full transition-all duration-300 border"
+             style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.1); color:rgba(255,255,255,0.6)"
+             onmouseenter="this.style.background='#10b981'; this.style.borderColor='#10b981'; this.style.color='black'"
+             onmouseleave="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(255,255,255,0.1)'; this.style.color='rgba(255,255,255,0.6)'"
+             aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="https://github.com/pranavpahuja" target="_blank" rel="noopener noreferrer"
+             class="p-3.5 rounded-full transition-all duration-300 border"
+             style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.1); color:rgba(255,255,255,0.6)"
+             onmouseenter="this.style.background='#10b981'; this.style.borderColor='#10b981'; this.style.color='black'"
+             onmouseleave="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(255,255,255,0.1)'; this.style.color='rgba(255,255,255,0.6)'"
+             aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+          </a>
+          <a href="mailto:prnvp@protonmail.ch"
+             class="p-3.5 rounded-full transition-all duration-300 border"
+             style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.1); color:rgba(255,255,255,0.6)"
+             onmouseenter="this.style.background='#10b981'; this.style.borderColor='#10b981'; this.style.color='black'"
+             onmouseleave="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(255,255,255,0.1)'; this.style.color='rgba(255,255,255,0.6)'"
+             aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </a>
         </div>
       </div>
 
       <!-- Spacer -->
       <div class="hidden md:block md:col-span-2"></div>
 
-      <!-- Links -->
+      <!-- Expertise -->
       <div class="md:col-span-2">
-        <h4 class="font-bold !text-white text-lg mb-8">Expertise</h4>
-        <ul class="space-y-4 text-gray-400">
-          <li class="hover:text-white transition-colors cursor-default">Strategic Consulting</li>
-          <li class="hover:text-white transition-colors cursor-default">Enterprise Solutions</li>
-          <li class="hover:text-white transition-colors cursor-default">Data & AI</li>
-          <li class="hover:text-white transition-colors cursor-default">Digital Transformation</li>
+        <h4 class="font-bold text-white text-sm tracking-widest uppercase mb-7">Expertise</h4>
+        <ul class="space-y-3.5 text-sm" style="color:rgba(255,255,255,0.45)">
+          <li class="transition-colors duration-200 cursor-default hover:text-white">Strategic Consulting</li>
+          <li class="transition-colors duration-200 cursor-default hover:text-white">AI & Automation</li>
+          <li class="transition-colors duration-200 cursor-default hover:text-white">Digital Transformation</li>
+          <li class="transition-colors duration-200 cursor-default hover:text-white">Operations Excellence</li>
         </ul>
       </div>
 
+      <!-- Quick Links -->
       <div class="md:col-span-3">
-        <h4 class="font-bold !text-white text-lg mb-8">Quick Links</h4>
-        <ul class="space-y-4 text-gray-400">
-          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><a href="https://www.prnvp.com" target="_blank" class="hover:text-white transition-colors flex items-center gap-2">prnvp&co <span class="text-xs bg-white/10 px-2 py-0.5 rounded text-white/60">Group</span></a></li>
+        <h4 class="font-bold text-white text-sm tracking-widest uppercase mb-7">Connect</h4>
+        <ul class="space-y-3.5 text-sm" style="color:rgba(255,255,255,0.45)">
+          <li><a href="/" class="transition-colors duration-200 hover:text-white">Home</a></li>
+          <li><a href="https://linkedin.com/in/prnvp" target="_blank" class="transition-colors duration-200 hover:text-white">LinkedIn</a></li>
+          <li><a href="https://github.com/pranavpahuja" target="_blank" class="transition-colors duration-200 hover:text-white">GitHub</a></li>
+          <li><a href="mailto:prnvp@protonmail.ch" class="transition-colors duration-200 hover:text-white">Email</a></li>
         </ul>
       </div>
     </div>
 
     <!-- Copyright -->
-    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-      <p class="!text-white">&copy; {new Date().getFullYear()} Pranav Pahuja. All rights reserved.</p>
-      <div class="flex gap-8 mt-4 md:mt-0">
-          <span class="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
-          <span class="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
-      </div>
+    <div class="border-t pt-7 flex flex-col md:flex-row justify-between items-center text-sm"
+         style="border-color:rgba(255,255,255,0.08)">
+      <p style="color:rgba(255,255,255,0.4)">&copy; {new Date().getFullYear()} Pranav Pahuja. All rights reserved.</p>
+      <p class="mt-3 md:mt-0 text-xs" style="color:rgba(255,255,255,0.25)">Strategy · AI · Digital Transformation</p>
     </div>
   </div>
 </footer>

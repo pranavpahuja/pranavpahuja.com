@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
 import Stats from '../components/Stats.tsx';
 import Services from '../components/Services.astro';
 import Timeline from '../components/Timeline.astro';
@@ -13,16 +14,36 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Pranav Pahuja | Strategy & Digital Transformation Consultant">
-	<Header />
-	<main>
-		<Hero />
-		<Stats client:visible />
-		<Services />
-		<Timeline />
-		<Certifications />
-		<Testimonials client:visible />
-		<Engagement />
-		<Contact />
-	</main>
-	<Footer />
+  <Header />
+  <main>
+    <!-- Light: Hero with aurora -->
+    <Hero />
+
+    <!-- Dark: Marquee ticker -->
+    <Marquee />
+
+    <!-- Light: Stats bar -->
+    <Stats client:visible />
+
+    <!-- Dark: Core Competencies -->
+    <Services />
+
+    <!-- Light: Experience + Education + Profile -->
+    <div class="py-20 bg-white">
+      <Timeline />
+    </div>
+
+    <!-- Dark: Certifications -->
+    <Certifications />
+
+    <!-- Light: Testimonials -->
+    <Testimonials client:visible />
+
+    <!-- Dark: How I Engage -->
+    <Engagement />
+
+    <!-- Light: Contact -->
+    <Contact />
+  </main>
+  <Footer />
 </Layout>

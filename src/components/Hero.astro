@@ -1,81 +1,132 @@
 ---
 ---
-<section class="min-h-[90vh] flex items-center pt-24 pb-12">
-    <div class="container mx-auto px-5">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<section class="relative min-h-[92vh] flex items-center pt-24 pb-12 overflow-hidden bg-white">
 
-            <!-- Left: Typography -->
-            <div class="flex flex-col justify-center order-2 lg:order-1 fade-in-section">
-                <div class="inline-flex items-center gap-2 mb-6">
-                    <span class="w-2 h-2 rounded-full bg-green animate-pulse"></span>
-                    <span class="text-sm font-medium tracking-widest uppercase text-gray-500">Strategy & Digital Transformation Consultant</span>
-                </div>
+  <!-- Aurora background blobs -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div class="absolute w-[600px] h-[600px] rounded-full blur-[100px] opacity-30"
+         style="background:#10b981; top:-120px; right:-80px; animation: aurora-1 20s ease-in-out infinite;"></div>
+    <div class="absolute w-[480px] h-[480px] rounded-full blur-[120px] opacity-20"
+         style="background:#3b82f6; top:40%; left:-100px; animation: aurora-2 26s ease-in-out infinite;"></div>
+    <div class="absolute w-[360px] h-[360px] rounded-full blur-[90px] opacity-18"
+         style="background:#8b5cf6; bottom:-60px; right:28%; animation: aurora-3 18s ease-in-out infinite;"></div>
+  </div>
 
-                <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8 text-black">
-                    AI-Enabled<br/>Operations<br/>
-                    <span class="text-gray-400">& Strategy.</span>
-                </h1>
+  <div class="container mx-auto px-5 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-                <p class="text-xl md:text-2xl text-gray-600 max-w-lg leading-relaxed mb-10">
-                    6+ years at Deloitte leading digital transformation for Fortune 500 clients — eliminating 99.9% of errors, saving 180+ hours/month, and translating AI into measurable business outcomes.
-                </p>
+      <!-- Left: Typography -->
+      <div class="flex flex-col justify-center order-2 lg:order-1">
 
-                <div class="flex flex-wrap gap-3 mb-12">
-                    <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">AI & Automation Strategy</span>
-                    <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">Executive Engagement</span>
-                    <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">Value Realization</span>
-                </div>
-
-                <div class="flex items-center gap-4">
-                     <button onclick="window.dispatchEvent(new CustomEvent('open-resume-modal'))" class="btn-primary group flex items-center gap-2 cursor-pointer" aria-label="Open Resume Modal" title="View Executive Resume">
-                        Executive Bio
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </button>
-                    <div class="flex gap-3 px-6 py-3 border-l border-gray-100">
-                        <a href="https://linkedin.com/in/prnvp" target="_blank" class="text-gray-400 hover:text-green transition-colors" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.3c0-1.26 0-2.88-1.75-2.88s-2 1.36-2 2.78v5.4h-3.55V9h3.4v1.56h.05a3.74 3.74 0 0 1 3.36-1.84c3.6 0 4.26 2.37 4.26 5.45v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-                        </a>
-                        <a href="https://github.com/pranavpahuja" target="_blank" class="text-gray-400 hover:text-green transition-colors" aria-label="GitHub">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.4.7-4.1-1.6-4.1-1.6a3.3 3.3 0 0 0-1.4-1.8c-1.1-.7.1-.7.1-.7a2.7 2.7 0 0 1 2 1.3 2.8 2.8 0 0 0 3.8 1 2.8 2.8 0 0 1 .8-1.8c-2.7-.3-5.6-1.3-5.6-5.8a4.5 4.5 0 0 1 1.2-3.2 4.2 4.2 0 0 1 .1-3.1s1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2a4.2 4.2 0 0 1 .1 3.1 4.5 4.5 0 0 1 1.2 3.2c0 4.5-2.9 5.5-5.6 5.8a3.1 3.1 0 0 1 .9 2.4v3.6c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right: Headshot -->
-            <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end fade-in-section">
-                <div class="relative w-full max-w-[480px]">
-                    <!-- Ambient glow behind photo -->
-                    <div class="absolute -inset-4 bg-gradient-to-tr from-green/20 via-blue-100/30 to-purple-200/20 rounded-[40px] blur-[40px] opacity-60"></div>
-
-                    <!-- Photo frame -->
-                    <div class="relative rounded-[32px] overflow-hidden shadow-2xl border border-white/60 bg-white">
-                        <img
-                            src="/images/pranav-pahuja.jpg"
-                            alt="Pranav Pahuja — Strategy & Digital Transformation Consultant"
-                            class="w-full h-auto object-cover object-top"
-                            style="aspect-ratio: 1 / 1; object-position: center top;"
-                        />
-                        <!-- Subtle gradient overlay at bottom -->
-                        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/20 to-transparent"></div>
-
-                        <!-- Name badge -->
-                        <div class="absolute bottom-5 left-5 right-5">
-                            <div class="glass-panel rounded-2xl px-5 py-3 flex items-center justify-between backdrop-blur-md">
-                                <div>
-                                    <p class="text-white font-bold text-base leading-tight drop-shadow">Pranav Pahuja</p>
-                                    <p class="text-white/80 text-xs font-medium tracking-wide">Deloitte Consulting USI · 6+ Years</p>
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <span class="w-2 h-2 rounded-full bg-green animate-pulse"></span>
-                                    <span class="text-white/80 text-xs font-medium">Open to opportunities</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <!-- Badge -->
+        <div class="hero-a1 inline-flex items-center gap-2 mb-6 w-fit">
+          <span class="w-2 h-2 rounded-full bg-green animate-pulse"></span>
+          <span class="text-sm font-semibold tracking-widest uppercase text-gray-500">Strategy & Digital Transformation</span>
         </div>
+
+        <!-- Headline with stagger -->
+        <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.92] tracking-tight mb-8 text-black overflow-hidden">
+          <span class="hero-a2 block"><span class="text-green">AI-Enabled</span></span>
+          <span class="hero-a3 block">Operations</span>
+          <span class="hero-a4 block text-gray-300">& Strategy.</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="hero-a5 text-xl md:text-2xl text-gray-600 max-w-lg leading-relaxed mb-10">
+          6+ years at Deloitte leading digital transformation for Fortune 500 clients — eliminating 99.9% of errors, saving 180+ hours/month, and translating AI into measurable business outcomes.
+        </p>
+
+        <!-- Pills -->
+        <div class="hero-a6 flex flex-wrap gap-3 mb-12">
+          <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">AI & Automation Strategy</span>
+          <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">Executive Engagement</span>
+          <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">Value Realization</span>
+        </div>
+
+        <!-- CTA -->
+        <div class="hero-a7 flex items-center gap-4">
+          <button
+            id="hero-cta"
+            onclick="window.dispatchEvent(new CustomEvent('open-resume-modal'))"
+            class="btn-primary btn-magnetic group flex items-center gap-2 cursor-pointer"
+            aria-label="View Executive Resume"
+          >
+            Executive Bio
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="group-hover:translate-x-1 transition-transform">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </button>
+          <div class="flex gap-3 px-6 py-3 border-l border-gray-100">
+            <a href="https://linkedin.com/in/prnvp" target="_blank" class="text-gray-400 hover:text-green transition-colors" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.45 20.45h-3.55v-5.3c0-1.26 0-2.88-1.75-2.88s-2 1.36-2 2.78v5.4h-3.55V9h3.4v1.56h.05a3.74 3.74 0 0 1 3.36-1.84c3.6 0 4.26 2.37 4.26 5.45v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/pranavpahuja" target="_blank" class="text-gray-400 hover:text-green transition-colors" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.4.7-4.1-1.6-4.1-1.6a3.3 3.3 0 0 0-1.4-1.8c-1.1-.7.1-.7.1-.7a2.7 2.7 0 0 1 2 1.3 2.8 2.8 0 0 0 3.8 1 2.8 2.8 0 0 1 .8-1.8c-2.7-.3-5.6-1.3-5.6-5.8a4.5 4.5 0 0 1 1.2-3.2 4.2 4.2 0 0 1 .1-3.1s1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2a4.2 4.2 0 0 1 .1 3.1 4.5 4.5 0 0 1 1.2 3.2c0 4.5-2.9 5.5-5.6 5.8a3.1 3.1 0 0 1 .9 2.4v3.6c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Headshot with rotating gradient border -->
+      <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end hero-a2">
+        <div class="relative w-full max-w-[460px]">
+          <!-- Ambient glow -->
+          <div class="absolute -inset-8 bg-gradient-to-tr from-green/20 via-blue-200/20 to-purple-200/15 rounded-full blur-[60px] opacity-70 pointer-events-none"></div>
+
+          <!-- Rotating gradient border wrapper -->
+          <div class="headshot-border relative shadow-2xl">
+            <!-- Inner photo container -->
+            <div class="rounded-[33px] overflow-hidden bg-white">
+              <img
+                src="/images/pranav-pahuja.jpg"
+                alt="Pranav Pahuja — Strategy & Digital Transformation Consultant"
+                class="w-full h-auto object-cover object-top"
+                style="aspect-ratio: 1/1; object-position: center 15%;"
+              />
+              <!-- Gradient overlay -->
+              <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+            </div>
+
+            <!-- Name badge -->
+            <div class="absolute bottom-4 left-4 right-4 z-10">
+              <div class="rounded-2xl px-4 py-3 flex items-center justify-between"
+                   style="background: rgba(10,10,10,0.65); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.12);">
+                <div>
+                  <p class="text-white font-bold text-sm leading-tight">Pranav Pahuja</p>
+                  <p class="text-white/70 text-xs mt-0.5">Deloitte Consulting USI · 6+ Years</p>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-green animate-pulse flex-shrink-0"></span>
+                  <span class="text-white/75 text-xs">Open to roles</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
+
+<script>
+  // Magnetic button effect
+  document.querySelectorAll('.btn-magnetic').forEach(btn => {
+    const el = btn as HTMLElement;
+    el.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      el.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px) translateY(-2px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+    });
+  });
+</script>
