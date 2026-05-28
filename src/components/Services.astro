@@ -34,13 +34,13 @@ import fluidImage from '../assets/images/iridescent_chrome_abstract_fluid.png';
 
       <!-- Floating shape -->
       <div class="hidden md:flex col-span-1 md:col-span-3 items-center justify-center relative">
-        <div class="absolute inset-0 rounded-full blur-[60px] opacity-20" style="background: radial-gradient(circle, #10b981, #3b82f6)"></div>
+        <div class="absolute inset-0 rounded-full blur-[60px] opacity-10" style="background: radial-gradient(circle, #10b981, #3b82f6)"></div>
         <Image
           src={fluidImage}
           class="w-[140%] h-auto object-contain animate-float z-10 mix-blend-screen opacity-80"
           alt=""
           loading="lazy"
-          style="mask-image: radial-gradient(closest-side, black 60%, transparent 100%); -webkit-mask-image: radial-gradient(closest-side, black 60%, transparent 100%);"
+          style="mask-image: radial-gradient(closest-side, black 30%, transparent 58%); -webkit-mask-image: radial-gradient(closest-side, black 30%, transparent 58%); filter: brightness(0.72) saturate(1.2);"
         />
       </div>
 

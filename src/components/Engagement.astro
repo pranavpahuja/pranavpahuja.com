@@ -18,14 +18,14 @@ import clusterImage from '../assets/images/iridescent_chrome_shapes_cluster.png'
         </div>
 
         <div class="relative w-full h-[260px] mt-10 flex items-center justify-start">
-          <div class="absolute inset-0 rounded-full blur-[60px] opacity-25"
+          <div class="absolute inset-0 rounded-full blur-[60px] opacity-12"
                style="background: radial-gradient(circle, #10b981, #3b82f6)"></div>
           <Image
             src={clusterImage}
             class="w-[75%] h-auto object-contain animate-float-slow mix-blend-screen opacity-80"
             alt=""
             loading="lazy"
-            style="mask-image: radial-gradient(closest-side, black 60%, transparent 100%); -webkit-mask-image: radial-gradient(closest-side, black 60%, transparent 100%);"
+            style="mask-image: radial-gradient(closest-side, black 33%, transparent 60%); -webkit-mask-image: radial-gradient(closest-side, black 33%, transparent 60%); filter: brightness(0.72) saturate(1.2);"
           />
         </div>
       </div>
