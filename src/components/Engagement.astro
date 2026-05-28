@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import clusterImage from '../assets/images/iridescent_chrome_shapes_cluster.png';
 ---
 <section class="section-dark">
   <div class="container mx-auto px-5 py-24">
@@ -17,16 +15,9 @@ import clusterImage from '../assets/images/iridescent_chrome_shapes_cluster.png'
           </p>
         </div>
 
-        <div class="relative w-full h-[260px] mt-10 flex items-center justify-start">
-          <div class="absolute inset-0 rounded-full blur-[60px] opacity-12"
-               style="background: radial-gradient(circle, #10b981, #3b82f6)"></div>
-          <Image
-            src={clusterImage}
-            class="w-[75%] h-auto object-contain animate-float-slow mix-blend-screen opacity-80"
-            alt=""
-            loading="lazy"
-            style="mask-image: radial-gradient(closest-side, black 33%, transparent 60%); -webkit-mask-image: radial-gradient(closest-side, black 33%, transparent 60%); filter: brightness(0.72) saturate(1.2);"
-          />
+        <!-- Orbital animation -->
+        <div id="engagement-orbit-wrap" class="relative w-full h-[260px] mt-10">
+          <canvas id="engagement-orbit-canvas" class="absolute inset-0 w-full h-full"></canvas>
         </div>
       </div>
 
@@ -53,3 +44,111 @@ import clusterImage from '../assets/images/iridescent_chrome_shapes_cluster.png'
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  const wrap   = document.getElementById('engagement-orbit-wrap');
+  const canvas = document.getElementById('engagement-orbit-canvas') as HTMLCanvasElement | null;
+  if (!canvas || !wrap) return;
+
+  const ctx = canvas.getContext('2d')!;
+  let W = 0, H = 0;
+
+  function resize() {
+    W = wrap.offsetWidth;
+    H = wrap.offsetHeight;
+    canvas.width  = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  // ── Orbital rings definition ───────────────────────────────
+  // tilt = y-scale of ellipse (gives 3D perspective feel)
+  const rings = [
+    { a: 0,     speed:  0.014, dotCount: 2, dotR: 3.5, tilt: 0.38 },
+    { a: 1.1,   speed: -0.008, dotCount: 3, dotR: 2.8, tilt: 0.24 },
+    { a: 0.55,  speed:  0.005, dotCount: 5, dotR: 2.2, tilt: 0.16 },
+  ];
+
+  let hovered  = false;
+  let speedMul = 1;
+
+  wrap.addEventListener('mouseenter', () => { hovered = true; });
+  wrap.addEventListener('mouseleave', () => { hovered = false; });
+
+  let t = 0;
+
+  function tick() {
+    requestAnimationFrame(tick);
+    ctx.clearRect(0, 0, W, H);
+
+    // Smoothly ramp speed on hover
+    const target  = hovered ? 2.8 : 1;
+    speedMul += (target - speedMul) * 0.05;
+    t        += 0.01 * speedMul;
+
+    const cx = W * 0.38;   // slightly left of center so list text has room
+    const cy = H * 0.55;
+    const maxR = Math.min(W * 0.32, H * 0.42);
+
+    // Radii spaced out
+    const radii = [maxR * 0.38, maxR * 0.65, maxR];
+
+    for (let ri = 0; ri < rings.length; ri++) {
+      const ring = rings[ri];
+      const rx   = radii[ri];
+      const ry   = rx * ring.tilt;
+
+      // Ring ellipse
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(16,185,129,0.15)';
+      ctx.lineWidth   = 0.9;
+      ctx.stroke();
+
+      // Orbiting dots
+      for (let d = 0; d < ring.dotCount; d++) {
+        const angle = t * ring.speed * 80 + ring.a + (d / ring.dotCount) * Math.PI * 2;
+        const x = cx + Math.cos(angle) * rx;
+        const y = cy + Math.sin(angle) * ry;
+        // depth: sin of angle mapped to opacity + size
+        const depth = Math.sin(angle);
+        const alpha = 0.28 + ((depth + 1) / 2) * 0.62;
+        const r     = ring.dotR * (0.65 + ((depth + 1) / 2) * 0.55);
+
+        // Soft glow around dot
+        const grd = ctx.createRadialGradient(x, y, 0, x, y, r * 3.5);
+        grd.addColorStop(0, `rgba(52,211,153,${alpha * 0.45})`);
+        grd.addColorStop(1, 'rgba(52,211,153,0)');
+        ctx.beginPath();
+        ctx.arc(x, y, r * 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+
+        // Solid dot
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(52,211,153,${alpha})`;
+        ctx.fill();
+      }
+    }
+
+    // Centre node
+    const cgrd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 6);
+    cgrd.addColorStop(0, 'rgba(52,211,153,0.7)');
+    cgrd.addColorStop(1, 'rgba(52,211,153,0)');
+    ctx.beginPath();
+    ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+    ctx.fillStyle = cgrd;
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(cx, cy, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(52,211,153,0.85)';
+    ctx.fill();
+  }
+
+  tick();
+})();
+</script>

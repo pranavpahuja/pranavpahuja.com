@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import cubeImage from '../assets/images/iridescent_chrome_geometric_cube.png';
 ---
 <section class="section-dark py-20">
   <div class="container mx-auto px-5">
@@ -54,21 +52,125 @@ import cubeImage from '../assets/images/iridescent_chrome_geometric_cube.png';
         </div>
       </div>
 
-      <!-- Right: 3D Visual -->
-      <div class="col-span-1 md:col-span-5 flex justify-center items-center h-[400px]">
-        <div class="relative w-full h-full flex items-center justify-center">
-          <div class="absolute inset-0 rounded-full blur-[80px] opacity-15"
-               style="background: radial-gradient(circle, #10b981, #3b82f6)"></div>
-          <Image
-            src={cubeImage}
-            alt=""
-            loading="lazy"
-            class="w-full scale-110 h-auto object-contain animate-slow-spin z-10 mix-blend-screen opacity-85"
-            style="mask-image: radial-gradient(closest-side, black 28%, transparent 56%); -webkit-mask-image: radial-gradient(closest-side, black 28%, transparent 56%); filter: brightness(0.72) saturate(1.2);"
-          />
-        </div>
+      <!-- Right: Wireframe icosahedron -->
+      <div id="certs-wire-wrap" class="col-span-1 md:col-span-5 flex justify-center items-center h-[400px] relative">
+        <canvas id="certs-wire-canvas" class="absolute inset-0 w-full h-full"></canvas>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  const wrap   = document.getElementById('certs-wire-wrap');
+  const canvas = document.getElementById('certs-wire-canvas') as HTMLCanvasElement | null;
+  if (!canvas || !wrap) return;
+
+  const ctx = canvas.getContext('2d')!;
+  let W = 0, H = 0;
+
+  function resize() {
+    W = wrap.offsetWidth;
+    H = wrap.offsetHeight;
+    canvas.width  = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  // ── Icosahedron geometry ───────────────────────────────────
+  const phi = (1 + Math.sqrt(5)) / 2;
+  const raw: [number,number,number][] = [
+    [0,1,phi],[0,-1,phi],[0,1,-phi],[0,-1,-phi],
+    [1,phi,0],[-1,phi,0],[1,-phi,0],[-1,-phi,0],
+    [phi,0,1],[-phi,0,1],[phi,0,-1],[-phi,0,-1],
+  ];
+  // Normalise to unit sphere
+  const verts = raw.map(([x,y,z]) => {
+    const len = Math.sqrt(x*x + y*y + z*z);
+    return [x/len, y/len, z/len] as [number,number,number];
+  });
+  const edges: [number,number][] = [
+    [0,1],[0,4],[0,5],[0,8],[0,9],
+    [1,6],[1,7],[1,8],[1,9],
+    [2,3],[2,4],[2,5],[2,10],[2,11],
+    [3,6],[3,7],[3,10],[3,11],
+    [4,5],[4,8],[4,10],
+    [5,9],[5,11],
+    [6,7],[6,8],[6,10],
+    [7,9],[7,11],
+    [8,10],[9,11],
+  ];
+
+  // ── Rotation helpers ──────────────────────────────────────
+  function rotY([x,y,z]: [number,number,number], a: number): [number,number,number] {
+    return [x*Math.cos(a) + z*Math.sin(a), y, -x*Math.sin(a) + z*Math.cos(a)];
+  }
+  function rotX([x,y,z]: [number,number,number], a: number): [number,number,number] {
+    return [x, y*Math.cos(a) - z*Math.sin(a), y*Math.sin(a) + z*Math.cos(a)];
+  }
+
+  // ── Mouse tilt ────────────────────────────────────────────
+  let tiltX = 0, tiltY = 0, targetTX = 0, targetTY = 0;
+  wrap.addEventListener('mousemove', (e: MouseEvent) => {
+    const r = canvas.getBoundingClientRect();
+    targetTX = ((e.clientY - r.top)  / H - 0.5) *  0.55;
+    targetTY = ((e.clientX - r.left) / W - 0.5) * -0.55;
+  }, { passive: true });
+  wrap.addEventListener('mouseleave', () => { targetTX = 0; targetTY = 0; });
+
+  let t = 0;
+
+  function tick() {
+    requestAnimationFrame(tick);
+    ctx.clearRect(0, 0, W, H);
+
+    t     += 0.007;
+    tiltX += (targetTX - tiltX) * 0.06;
+    tiltY += (targetTY - tiltY) * 0.06;
+
+    const scale = Math.min(W, H) * 0.36;
+    const cx = W / 2, cy = H / 2;
+
+    // Project all verts
+    const proj = verts.map(v => {
+      const [x, y, z] = rotX(rotY(v, t + tiltY), tiltX);
+      return { sx: cx + x * scale, sy: cy - y * scale, z };
+    });
+
+    // Sort edges back-to-front for painter's algorithm
+    const sorted = [...edges].sort((a, b) => {
+      const az = (proj[a[0]].z + proj[a[1]].z) / 2;
+      const bz = (proj[b[0]].z + proj[b[1]].z) / 2;
+      return az - bz;
+    });
+
+    // Draw edges
+    for (const [i, j] of sorted) {
+      const avgZ = (proj[i].z + proj[j].z) / 2;
+      const alpha = 0.05 + ((avgZ + 1) / 2) * 0.65;
+      const lw    = 0.7 + ((avgZ + 1) / 2) * 0.8;
+      ctx.beginPath();
+      ctx.moveTo(proj[i].sx, proj[i].sy);
+      ctx.lineTo(proj[j].sx, proj[j].sy);
+      ctx.strokeStyle = `rgba(52,211,153,${alpha})`;
+      ctx.lineWidth   = lw;
+      ctx.stroke();
+    }
+
+    // Draw vertices
+    for (const p of proj) {
+      const alpha = 0.15 + ((p.z + 1) / 2) * 0.60;
+      const r     = 1.4  + ((p.z + 1) / 2) * 2.0;
+      ctx.beginPath();
+      ctx.arc(p.sx, p.sy, r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(16,185,129,${alpha})`;
+      ctx.fill();
+    }
+  }
+
+  tick();
+})();
+</script>
