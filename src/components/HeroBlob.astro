@@ -108,15 +108,15 @@ void main(){
   vec3  lightDir = normalize(vec3(1.0, 1.2, 0.8));
   float spec     = pow(max(dot(vNormal, lightDir), 0.0), 10.0) * 0.28;
 
-  // Build colour
-  vec3 color = mix(emerald, blue, smoothstep(0.10, 0.65, t + wv1 * 0.15));
-  color      = mix(color, purple, smoothstep(0.45, 1.00, t * wv2 + rim * 0.28));
-  color     += rim  * blue    * 0.55;
-  color     += rim  * emerald * 0.22;
-  color     += spec * mix(vec3(1.0), blue, 0.4);
-  color     *= 0.72 + vNoise * 0.28;
+  // Build colour — emerald dominant with blue/purple accents
+  vec3 color = mix(emerald, blue, smoothstep(0.40, 0.90, t + wv1 * 0.12));
+  color      = mix(color, purple, smoothstep(0.65, 1.00, t * wv2 + rim * 0.20));
+  color     += rim  * emerald * 0.50;   // strong emerald rim glow
+  color     += rim  * blue    * 0.20;   // subtle blue accent on edges
+  color     += spec * mix(vec3(1.0), emerald, 0.6);
+  color     *= 0.78 + vNoise * 0.22;
 
-  float alpha = clamp(0.50 + rim * 0.22 + t * 0.08, 0.0, 0.88);
+  float alpha = clamp(0.45 + rim * 0.18 + t * 0.07, 0.0, 0.82);
   gl_FragColor = vec4(color, alpha);
 }`;
 
@@ -143,8 +143,8 @@ function initBlob() {
   renderer.setSize(parent.offsetWidth, parent.offsetHeight);
   renderer.setClearColor(0x000000, 0);
 
-  // Mesh
-  const geo = new THREE.IcosahedronGeometry(isMobile ? 1.55 : 1.95, isMobile ? 48 : 80);
+  // Mesh — smaller radius so it sits neatly behind headshot
+  const geo = new THREE.IcosahedronGeometry(isMobile ? 1.05 : 1.35, isMobile ? 48 : 80);
   const uniforms = {
     uTime:  { value: 0 },
     uMouse: { value: new THREE.Vector2(0, 0) },
@@ -158,8 +158,8 @@ function initBlob() {
   });
 
   const mesh = new THREE.Mesh(geo, mat);
-  // Desktop: sit right-centre, behind the headshot area
-  mesh.position.set(isMobile ? 0 : 1.35, isMobile ? -0.4 : -0.1, 0);
+  // Desktop: sit behind headshot, slightly right of centre
+  mesh.position.set(isMobile ? 0 : 1.0, isMobile ? -0.2 : -0.05, 0);
   scene.add(mesh);
 
   // Mouse tracking (smooth lerp)
