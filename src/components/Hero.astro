@@ -3,26 +3,26 @@
 <section class="min-h-[90vh] flex items-center pt-24 pb-12">
     <div class="container mx-auto px-5">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             <!-- Left: Typography -->
             <div class="flex flex-col justify-center order-2 lg:order-1 fade-in-section">
                 <div class="inline-flex items-center gap-2 mb-6">
                     <span class="w-2 h-2 rounded-full bg-green animate-pulse"></span>
-                    <span class="text-sm font-medium tracking-widest uppercase text-gray-500">Engagement Lead & Strategy Consultant</span>
+                    <span class="text-sm font-medium tracking-widest uppercase text-gray-500">Strategy & Digital Transformation Consultant</span>
                 </div>
 
                 <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8 text-black">
-                    Digital<br/>Transformation<br/>
+                    AI-Enabled<br/>Operations<br/>
                     <span class="text-gray-400">& Strategy.</span>
                 </h1>
 
                 <p class="text-xl md:text-2xl text-gray-600 max-w-lg leading-relaxed mb-10">
-                    Eliminating 95% of manual operations and safeguarding revenue-critical workflows for Fortune 500 retailers through AI-enabled digital transformation.
+                    6+ years at Deloitte leading digital transformation for Fortune 500 clients — eliminating 99.9% of errors, saving 180+ hours/month, and translating AI into measurable business outcomes.
                 </p>
 
                 <div class="flex flex-wrap gap-3 mb-12">
-                    <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">Engagement Leadership</span>
-                    <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">Strategic Planning</span>
+                    <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">AI & Automation Strategy</span>
+                    <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">Executive Engagement</span>
                     <span class="px-5 py-2.5 bg-gray-50 border border-gray-100 rounded-full text-sm font-medium text-gray-600">Value Realization</span>
                 </div>
 
@@ -42,32 +42,40 @@
                 </div>
             </div>
 
-            <!-- Right: 3D Visual -->
+            <!-- Right: Headshot -->
             <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end fade-in-section">
-                <div class="relative w-full max-w-[600px] aspect-square flex items-center justify-center">
-                    <!-- Decorative back glow -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-green/20 to-purple-300/20 rounded-full blur-[80px] opacity-40"></div>
-                    
-                    <!-- 3D Asset -->
-                    <img 
-                        src="/images/iridescent_chrome_torus_hero.png" 
-                        alt="Abstract 3D Shape" 
-                        class="w-full h-full object-contain relative z-10 animate-float mix-blend-multiply scale-110"
-                        style="mask-image: radial-gradient(closest-side, black 60%, transparent 100%); -webkit-mask-image: radial-gradient(closest-side, black 60%, transparent 100%);"
-                    />
+                <div class="relative w-full max-w-[480px]">
+                    <!-- Ambient glow behind photo -->
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-green/20 via-blue-100/30 to-purple-200/20 rounded-[40px] blur-[40px] opacity-60"></div>
+
+                    <!-- Photo frame -->
+                    <div class="relative rounded-[32px] overflow-hidden shadow-2xl border border-white/60 bg-white">
+                        <img
+                            src="/images/pranav-pahuja.jpg"
+                            alt="Pranav Pahuja — Strategy & Digital Transformation Consultant"
+                            class="w-full h-auto object-cover object-top"
+                            style="aspect-ratio: 1 / 1; object-position: center top;"
+                        />
+                        <!-- Subtle gradient overlay at bottom -->
+                        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+                        <!-- Name badge -->
+                        <div class="absolute bottom-5 left-5 right-5">
+                            <div class="glass-panel rounded-2xl px-5 py-3 flex items-center justify-between backdrop-blur-md">
+                                <div>
+                                    <p class="text-white font-bold text-base leading-tight drop-shadow">Pranav Pahuja</p>
+                                    <p class="text-white/80 text-xs font-medium tracking-wide">Deloitte Consulting USI · 6+ Years</p>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-green animate-pulse"></span>
+                                    <span class="text-white/80 text-xs font-medium">Open to opportunities</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 </section>
-
-<style>
-    @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(2deg); }
-    }
-    .animate-float {
-        animation: float 8s ease-in-out infinite;
-    }
-</style>

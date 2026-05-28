@@ -34,10 +34,21 @@ export default function Stats() {
         <div className="col-span-1">
           <div className="flex items-center gap-4">
             <h2 className="text-5xl md:text-6xl font-bold">
-              <Counter value={95} />%
+              99.9%
             </h2>
             <p className="text-gray-600 uppercase tracking-widest text-sm leading-tight">
-              Manual Ops <br /> Eliminated
+              Error <br /> Elimination
+            </p>
+          </div>
+        </div>
+
+        <div className="col-span-1">
+          <div className="flex items-center gap-4">
+            <h2 className="text-5xl md:text-6xl font-bold">
+              <Counter value={180} />+
+            </h2>
+            <p className="text-gray-600 uppercase tracking-widest text-sm leading-tight">
+              Hours Saved <br /> Per Month
             </p>
           </div>
         </div>
@@ -48,18 +59,7 @@ export default function Stats() {
               <Counter value={80} />%
             </h2>
             <p className="text-gray-600 uppercase tracking-widest text-sm leading-tight">
-              SLA <br /> Improvement
-            </p>
-          </div>
-        </div>
-
-        <div className="col-span-1">
-          <div className="flex items-center gap-4">
-            <h2 className="text-5xl md:text-6xl font-bold">
-              <Counter value={15} />+
-            </h2>
-            <p className="text-gray-600 uppercase tracking-widest text-sm leading-tight">
-              Automation <br /> Solutions
+              Fewer Production <br /> Failures
             </p>
           </div>
         </div>
