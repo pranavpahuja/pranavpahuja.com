@@ -23,12 +23,6 @@ import ResumeViewer from "../components/ResumeViewer";
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- ── Security meta ─────────────────────────────── -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="DENY" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
-
     <!-- ── Core SEO ──────────────────────────────────── -->
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -44,13 +38,14 @@ import ResumeViewer from "../components/ResumeViewer";
     <meta name="ICBM" content="28.4595, 77.0266" />
 
     <!-- ── Open Graph ────────────────────────────────── -->
-    <meta property="og:type" content="profile" />
+    <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:width" content="1254" />
+    <meta property="og:image:height" content="1254" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content="Pranav Pahuja — Strategy & Digital Transformation Consultant" />
     <meta property="og:site_name" content="Pranav Pahuja" />
     <meta property="og:locale" content="en_IN" />
@@ -76,8 +71,9 @@ import ResumeViewer from "../components/ResumeViewer";
     <!-- ── Performance hints ─────────────────────────── -->
     <link rel="preconnect" href="https://cal.com" />
     <link rel="dns-prefetch" href="https://cal.com" />
+    <link rel="preload" href="/fonts/grotesk/SpaceGrotesk-Regular.woff" as="font" type="font/woff" crossorigin />
     <link rel="preload" href="/fonts/grotesk/SpaceGrotesk-Medium.woff" as="font" type="font/woff" crossorigin />
-    <link rel="preload" href="/images/pranav-pahuja.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" href="/images/pranav-pahuja.webp" as="image" fetchpriority="high" />
 
     <!-- ── Rich Structured Data (SEO + GEO + AEO) ───── -->
     <script type="application/ld+json" is:inline>
@@ -275,6 +271,9 @@ import ResumeViewer from "../components/ResumeViewer";
 
   <body class="font-grotesk bg-white text-black relative">
 
+    <!-- Skip to main content (accessibility) -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
     <!-- Scroll progress indicator -->
     <div id="scroll-progress" aria-hidden="true"></div>
 
@@ -282,7 +281,7 @@ import ResumeViewer from "../components/ResumeViewer";
     <div class="cursor-spotlight" id="cursor-spotlight" aria-hidden="true"></div>
 
     <slot />
-    <ResumeViewer client:load />
+    <ResumeViewer client:idle />
 
     <script>
       // ── Cursor spotlight ──────────────────────────────

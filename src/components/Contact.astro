@@ -39,41 +39,82 @@
     </div>
 
     <div class="glass-panel p-8 md:p-10 rounded-[30px]">
-      <form class="space-y-6">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="space-y-6"
+        id="contact-form"
+      >
+        <!-- Honeypot spam filter (hidden) -->
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden"><label>Don't fill: <input name="bot-field" /></label></p>
+
         <div>
           <label for="name" class="sr-only">Name</label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            placeholder="your name" 
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="your name"
+            required
             class="w-full p-4 bg-white border border-black/10 text-black placeholder:text-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-green focus:bg-white transition-all font-medium"
-          >
+          />
         </div>
         <div>
           <label for="email" class="sr-only">Email</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            placeholder="your email" 
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your email"
+            required
             class="w-full p-4 bg-white border border-black/10 text-black placeholder:text-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-green focus:bg-white transition-all font-medium"
-          >
+          />
         </div>
         <div>
           <label for="message" class="sr-only">Message</label>
-          <textarea 
-            id="message" 
-            name="message" 
-            rows="4" 
-            placeholder="your message" 
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="your message"
+            required
             class="w-full p-4 bg-white border border-black/10 text-black placeholder:text-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-green focus:bg-white transition-all resize-none font-medium"
           ></textarea>
         </div>
-        <button type="submit" class="w-full btn-primary text-lg font-bold uppercase">
-          Submit
+        <button type="submit" id="contact-submit" class="w-full btn-primary text-lg font-bold uppercase">
+          Send Message
         </button>
+        <p id="contact-success" class="hidden text-center text-green font-semibold text-sm pt-1">
+          ✓ Message sent — I'll be in touch within 24 hours.
+        </p>
       </form>
+
+      <script>
+        const form = document.getElementById('contact-form') as HTMLFormElement | null;
+        const btn  = document.getElementById('contact-submit') as HTMLButtonElement | null;
+        const success = document.getElementById('contact-success') as HTMLElement | null;
+
+        form?.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          if (!form || !btn) return;
+          btn.disabled = true;
+          btn.textContent = 'Sending…';
+          try {
+            const data = new FormData(form);
+            await fetch('/', { method: 'POST', body: data });
+            form.reset();
+            btn.style.display = 'none';
+            success?.classList.remove('hidden');
+          } catch {
+            btn.disabled = false;
+            btn.textContent = 'Send Message';
+            alert('Something went wrong. Please email me directly at prnvp@protonmail.ch');
+          }
+        });
+      </script>
     </div>
   </div>
 </section>

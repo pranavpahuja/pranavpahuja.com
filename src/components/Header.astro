@@ -35,15 +35,12 @@
 
 <script>
   const header = document.getElementById('site-header');
-  let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    if (currentScroll > 60) {
+    if (window.scrollY > 60) {
       header?.classList.add('scrolled');
     } else {
       header?.classList.remove('scrolled');
     }
-    lastScroll = currentScroll;
   }, { passive: true });
 </script>

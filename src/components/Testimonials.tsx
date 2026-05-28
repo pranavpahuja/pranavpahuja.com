@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+
+const QuoteIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
+    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+  </svg>
+);
 
 const testimonials = [
   {
@@ -43,7 +50,7 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
               className="glass-panel text-black p-8 rounded-[30px] relative group"
             >
-              <Quote
+              <QuoteIcon
                 className="w-9 h-9 mb-6 opacity-70 group-hover:opacity-100 transition-opacity"
                 style={{ color: "#10b981" }}
               />

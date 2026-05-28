@@ -63,12 +63,12 @@ import HeroBlob from './HeroBlob.astro';
             </svg>
           </button>
           <div class="flex gap-3 px-6 py-3 border-l border-gray-100">
-            <a href="https://linkedin.com/in/prnvp" target="_blank" class="text-gray-400 hover:text-green transition-colors" aria-label="LinkedIn">
+            <a href="https://linkedin.com/in/prnvp" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green transition-colors" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20.45 20.45h-3.55v-5.3c0-1.26 0-2.88-1.75-2.88s-2 1.36-2 2.78v5.4h-3.55V9h3.4v1.56h.05a3.74 3.74 0 0 1 3.36-1.84c3.6 0 4.26 2.37 4.26 5.45v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
               </svg>
             </a>
-            <a href="https://github.com/pranavpahuja" target="_blank" class="text-gray-400 hover:text-green transition-colors" aria-label="GitHub">
+            <a href="https://github.com/pranavpahuja" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green transition-colors" aria-label="GitHub">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.4.7-4.1-1.6-4.1-1.6a3.3 3.3 0 0 0-1.4-1.8c-1.1-.7.1-.7.1-.7a2.7 2.7 0 0 1 2 1.3 2.8 2.8 0 0 0 3.8 1 2.8 2.8 0 0 1 .8-1.8c-2.7-.3-5.6-1.3-5.6-5.8a4.5 4.5 0 0 1 1.2-3.2 4.2 4.2 0 0 1 .1-3.1s1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2a4.2 4.2 0 0 1 .1 3.1 4.5 4.5 0 0 1 1.2 3.2c0 4.5-2.9 5.5-5.6 5.8a3.1 3.1 0 0 1 .9 2.4v3.6c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/>
               </svg>
@@ -87,17 +87,20 @@ import HeroBlob from './HeroBlob.astro';
           <div class="headshot-border relative shadow-2xl">
             <!-- Inner photo container -->
             <div class="rounded-[33px] overflow-hidden" style="background: linear-gradient(135deg, #e8f5f0 0%, #f0f4ff 100%)">
-              <img
-                src="/images/pranav-pahuja.jpg"
-                alt="Pranav Pahuja — Strategy and Digital Transformation Consultant based in Gurugram India with 6+ years at Deloitte Consulting"
-                class="w-full h-auto object-cover object-top"
-                style="aspect-ratio: 1/1; object-position: center 15%;"
-                fetchpriority="high"
-                loading="eager"
-                decoding="async"
-                width="920"
-                height="920"
-              />
+              <picture>
+                <source srcset="/images/pranav-pahuja.webp" type="image/webp" />
+                <img
+                  src="/images/pranav-pahuja.jpg"
+                  alt="Pranav Pahuja — Strategy and Digital Transformation Consultant based in Gurugram India with 6+ years at Deloitte Consulting"
+                  class="w-full h-auto object-cover object-top"
+                  style="aspect-ratio: 1/1; object-position: center 15%;"
+                  fetchpriority="high"
+                  loading="eager"
+                  decoding="async"
+                  width="1254"
+                  height="1254"
+                />
+              </picture>
               <!-- Gradient overlay -->
               <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
             </div>

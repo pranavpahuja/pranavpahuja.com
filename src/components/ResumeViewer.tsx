@@ -1,6 +1,30 @@
 import { useState, useEffect, useRef } from "react";
-import { X, Download, Printer, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const IconX = ({ size = 20 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 6 6 18M6 6l12 12"/>
+  </svg>
+);
+const IconDownload = ({ size = 18 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+);
+const IconPrinter = ({ size = 18 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
+  </svg>
+);
+const IconExternalLink = ({ size = 12 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+  </svg>
+);
 
 const RESUME_URL = "/resume_cv/cv.pdf";
 
@@ -61,16 +85,16 @@ export default function ResumeViewer() {
                   className="p-2 text-gray-500 hover:text-black hover:bg-gray-100 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium"
                   title="Print Resume"
                 >
-                  <Printer size={18} />
+                  <IconPrinter size={18} />
                   <span className="hidden md:inline">Print</span>
                 </button>
-                
+
                 <button
                   onClick={handleDownload}
                   className="p-2 text-gray-500 hover:text-black hover:bg-gray-100 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium"
                   title="Download PDF"
                 >
-                  <Download size={18} />
+                  <IconDownload size={18} />
                   <span className="hidden md:inline">Download</span>
                 </button>
 
@@ -81,7 +105,7 @@ export default function ResumeViewer() {
                   className="p-2 text-gray-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
                   aria-label="Close"
                 >
-                  <X size={20} />
+                  <IconX size={20} />
                 </button>
               </div>
             </div>
@@ -98,8 +122,8 @@ export default function ResumeViewer() {
             
             {/* Footer */}
              <div className="px-6 py-3 bg-gray-50 border-t border-gray-200 text-center md:text-right">
-                <a href={RESUME_URL} target="_blank" rel="noreferrer" className="text-xs text-gray-500 hover:text-black hover:underline flex items-center justify-end gap-1">
-                   Open in new tab <ExternalLink size={12}/>
+                <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 hover:text-black hover:underline flex items-center justify-end gap-1">
+                  Open in new tab <IconExternalLink size={12} />
                 </a>
              </div>
           </motion.div>
