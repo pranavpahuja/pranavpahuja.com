@@ -9,7 +9,11 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: "https://pranavpahuja.com",
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      // Three.js is intentionally large; loaded lazily behind WebGL check
+      chunkSizeWarningLimit: 600,
+    }
   },
 
   integrations: [react(), sitemap()]

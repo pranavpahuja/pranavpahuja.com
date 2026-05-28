@@ -100,7 +100,6 @@ import ResumeViewer from "../components/ResumeViewer";
             "height": 1200
           },
           "email": "prnvp@protonmail.ch",
-          "telephone": "+91-9530643781",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Gurugram",
@@ -276,6 +275,9 @@ import ResumeViewer from "../components/ResumeViewer";
 
   <body class="font-grotesk bg-white text-black relative">
 
+    <!-- Scroll progress indicator -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
     <!-- Cursor spotlight -->
     <div class="cursor-spotlight" id="cursor-spotlight" aria-hidden="true"></div>
 
@@ -293,33 +295,158 @@ import ResumeViewer from "../components/ResumeViewer";
       } else if (spotlight) {
         spotlight.style.display = 'none';
       }
+    </script>
 
-      // ── Scroll reveal ─────────────────────────────────
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
+    <!-- ── GSAP ScrollTrigger — all scroll-driven animations ── -->
+    <script>
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ── Scroll progress bar ───────────────────────────
+      gsap.to('#scroll-progress', {
+        scaleX: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: 'top top',
+          end:   'bottom bottom',
+          scrub: 0,
+        }
+      });
+
+      if (!reduced) {
+        // ── Hero parallax ───────────────────────────────
+        // Headshot drifts up slower than page (depth illusion)
+        gsap.to('#hero-headshot-wrap', {
+          y:    -75,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#hero-section',
+            start:   'top top',
+            end:     'bottom top',
+            scrub:   1.2,
           }
         });
-      }, { rootMargin: '0px', threshold: 0.06 });
 
-      document.querySelectorAll('.fade-in-section').forEach(el => revealObserver.observe(el));
-
-      // ── Progress bars: trigger when stats in view ─────
-      const progressObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.progress-bar-fill').forEach((bar: Element) => {
-              const target = (bar as HTMLElement).dataset.target || '0%';
-              (bar as HTMLElement).style.width = target;
-            });
-            progressObserver.unobserve(entry.target);
+        // Text drifts down slightly — opposite pull to headshot
+        gsap.to('#hero-text-wrap', {
+          y:    48,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#hero-section',
+            start:   'top top',
+            end:     'bottom top',
+            scrub:   1.6,
           }
         });
-      }, { threshold: 0.3 });
 
-      document.querySelectorAll('.stats-section').forEach(el => progressObserver.observe(el));
+        // Blob canvas fades as hero scrolls out
+        gsap.to('#hero-blob-canvas', {
+          opacity: 0,
+          ease:    'power1.in',
+          scrollTrigger: {
+            trigger: '#hero-section',
+            start:   '38% top',
+            end:     'bottom top',
+            scrub:   1.0,
+          }
+        });
+
+        // ── Section reveals — replace IntersectionObserver ──
+        // Each .fade-in-section enters with 3D rotateX for depth
+        gsap.utils.toArray<HTMLElement>('.fade-in-section').forEach((el) => {
+          gsap.fromTo(
+            el,
+            {
+              opacity:             0,
+              y:                   52,
+              rotationX:           4,
+              transformPerspective: 1100,
+              transformOrigin:     'center top',
+            },
+            {
+              opacity:   1,
+              y:         0,
+              rotationX: 0,
+              duration:  1.05,
+              ease:      'power3.out',
+              scrollTrigger: {
+                trigger:      el,
+                start:        'top 88%',
+                toggleActions: 'play none none none',
+              }
+            }
+          );
+        });
+
+        // ── Service cards — staggered entry ──────────────
+        gsap.fromTo(
+          '.services-card',
+          { opacity: 0, y: 38, scale: 0.97 },
+          {
+            opacity: 1, y: 0, scale: 1,
+            duration: 0.72, stagger: 0.10, ease: 'power3.out',
+            scrollTrigger: {
+              trigger:       '.services-grid',
+              start:         'top 84%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+
+        // ── Timeline cards — staggered entry ─────────────
+        gsap.fromTo(
+          '.timeline-card',
+          { opacity: 0, y: 34, scale: 0.97 },
+          {
+            opacity: 1, y: 0, scale: 1,
+            duration: 0.75, stagger: 0.13, ease: 'power3.out',
+            scrollTrigger: {
+              trigger:       '.timeline-grid',
+              start:         'top 84%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+
+        // ── Engagement items — stagger from right ─────────
+        gsap.fromTo(
+          '.engagement-item',
+          { opacity: 0, x: 28 },
+          {
+            opacity: 1, x: 0,
+            duration: 0.60, stagger: 0.08, ease: 'power2.out',
+            scrollTrigger: {
+              trigger:       '.engagement-list',
+              start:         'top 86%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+
+        // ── FAQ items — stagger ───────────────────────────
+        gsap.fromTo(
+          '.faq-item',
+          { opacity: 0, y: 22 },
+          {
+            opacity: 1, y: 0,
+            duration: 0.55, stagger: 0.08, ease: 'power2.out',
+            scrollTrigger: {
+              trigger:       '.faq-list',
+              start:         'top 88%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+
+      } else {
+        // Reduced motion: make everything visible immediately
+        gsap.set('.fade-in-section', { opacity: 1, y: 0 });
+      }
     </script>
   </body>
 </html>
