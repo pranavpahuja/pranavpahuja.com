@@ -1,0 +1,479 @@
+---
+---
+<section class="section-dark relative overflow-hidden" id="rocket-section">
+
+  <div class="container mx-auto px-5 py-28 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-6 items-center">
+
+      <!-- ── Left: Text + CTA ─────────────────────────── -->
+      <div class="order-2 lg:order-1 fade-in-section">
+        <span class="section-label">07 — Let's Launch</span>
+        <h2 class="text-5xl md:text-6xl xl:text-[5.2rem] font-bold text-white leading-[0.90] tracking-tight mb-8">
+          Ready to take<br/>
+          your business<br/>
+          <span style="color:#34d399">further.</span>
+        </h2>
+        <p class="text-lg md:text-xl mb-10 max-w-md leading-relaxed"
+           style="color:rgba(255,255,255,0.48)">
+          Strategy meets execution. From AI automation to Fortune 500 transformation
+          — I build the bridge between vision and measurable outcomes.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-14">
+          <a href="https://cal.com/pranavpahuja" target="_blank" rel="noopener noreferrer"
+             class="btn-primary flex items-center justify-center gap-3 font-bold">
+            Book a Strategy Call
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="mailto:prnvp@protonmail.ch"
+             class="flex items-center justify-center gap-3 px-7 py-4 rounded-lg text-base font-semibold border transition-all duration-300"
+             style="color:rgba(255,255,255,0.60);border-color:rgba(255,255,255,0.14)"
+             onmouseenter="this.style.color='#34d399';this.style.borderColor='rgba(52,211,153,0.40)'"
+             onmouseleave="this.style.color='rgba(255,255,255,0.60)';this.style.borderColor='rgba(255,255,255,0.14)'">
+            Email Directly
+          </a>
+        </div>
+
+        <!-- Micro-stats -->
+        <div class="flex items-center gap-6 pt-8 border-t" style="border-color:rgba(255,255,255,0.07)">
+          <div>
+            <p class="text-2xl font-bold text-white">6+</p>
+            <p class="text-xs uppercase tracking-widest mt-0.5" style="color:rgba(255,255,255,0.28)">Years</p>
+          </div>
+          <div class="w-px h-8 rounded-full" style="background:rgba(255,255,255,0.08)"></div>
+          <div>
+            <p class="text-2xl font-bold text-white">F500</p>
+            <p class="text-xs uppercase tracking-widest mt-0.5" style="color:rgba(255,255,255,0.28)">Clients</p>
+          </div>
+          <div class="w-px h-8 rounded-full" style="background:rgba(255,255,255,0.08)"></div>
+          <div>
+            <p class="text-2xl font-bold" style="color:#34d399">99.9%</p>
+            <p class="text-xs uppercase tracking-widest mt-0.5" style="color:rgba(255,255,255,0.28)">Error-free</p>
+          </div>
+          <div class="w-px h-8 rounded-full" style="background:rgba(255,255,255,0.08)"></div>
+          <div>
+            <p class="text-2xl font-bold text-white">180+</p>
+            <p class="text-xs uppercase tracking-widest mt-0.5" style="color:rgba(255,255,255,0.28)">Hrs/Mo</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Right: Rocket 3D canvas ───────────────────── -->
+      <div class="order-1 lg:order-2">
+        <div id="rocket-wrap"
+             class="relative rounded-[28px] overflow-hidden"
+             style="height:600px;
+                    background:radial-gradient(ellipse at 50% 85%,rgba(16,185,129,0.07),transparent 65%);
+                    border:1px solid rgba(255,255,255,0.05)">
+
+          <canvas id="rocket-canvas" class="absolute inset-0 w-full h-full"></canvas>
+
+          <!-- CSS glow halo behind nozzle area -->
+          <div class="absolute bottom-10 left-1/2 -translate-x-1/2 pointer-events-none rocket-glow-pulse"
+               style="width:240px;height:56px;
+                      background:radial-gradient(ellipse at center,rgba(16,185,129,0.40),transparent 70%);
+                      filter:blur(22px)"></div>
+
+          <!-- Bottom fog -->
+          <div class="absolute inset-x-0 bottom-0 h-36 pointer-events-none"
+               style="background:linear-gradient(to top,rgba(10,10,10,0.92),transparent)"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes glow-pulse {
+    0%,100% { opacity: 0.8; transform: translateX(-50%) scaleX(1); }
+    50%      { opacity: 1.0; transform: translateX(-50%) scaleX(1.15); }
+  }
+  .rocket-glow-pulse { animation: glow-pulse 1.8s ease-in-out infinite; }
+</style>
+
+<script>
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+(function initRocket() {
+  const wrap   = document.getElementById('rocket-wrap');
+  const canvas = document.getElementById('rocket-canvas') as HTMLCanvasElement | null;
+  if (!canvas || !wrap) return;
+
+  // ── Renderer ────────────────────────────────────────────────────
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.toneMapping    = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.55;
+  renderer.outputColorSpace    = THREE.SRGBColorSpace;
+
+  let W = wrap.offsetWidth, H = wrap.offsetHeight;
+  renderer.setSize(W, H);
+
+  // ── Scene / Camera ───────────────────────────────────────────────
+  const scene  = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, W / H, 0.01, 300);
+  camera.position.set(0, 0.0, 9.0); // y=0 centres frame on rocket; z=9 gives breathing room
+
+  // ── Lighting ─────────────────────────────────────────────────────
+  // Moderate ambient so dark surfaces have a base
+  scene.add(new THREE.AmbientLight(0x1a1a2e, 1.8));
+
+  // Key: bright cool white from front-top — main illumination
+  const keyLight = new THREE.DirectionalLight(0xddeeff, 5.5);
+  keyLight.position.set(-1, 6, 8);
+  scene.add(keyLight);
+
+  // Front fill: warm white directly from camera — lifts shadow areas
+  const frontLight = new THREE.DirectionalLight(0xffffff, 2.5);
+  frontLight.position.set(0, 1, 10);
+  scene.add(frontLight);
+
+  // Right accent: blue-white for fin edge highlights
+  const accentLight = new THREE.DirectionalLight(0x99bbff, 2.0);
+  accentLight.position.set(5, 2, 3);
+  scene.add(accentLight);
+
+  // Engine rim: green pulse from below
+  const rimLight = new THREE.PointLight(0x10b981, 5.5, 16);
+  rimLight.position.set(0, -2.8, 1.0);
+  scene.add(rimLight);
+
+  // Back fill: cold blue for silhouette depth
+  const backLight = new THREE.DirectionalLight(0x1a2860, 1.5);
+  backLight.position.set(4, -2, -6);
+  scene.add(backLight);
+
+  // ── Star field ───────────────────────────────────────────────────
+  const STAR_COUNT = 200;
+  const starPos = new Float32Array(STAR_COUNT * 3);
+  for (let i = 0; i < STAR_COUNT; i++) {
+    starPos[i*3]   = (Math.random() - 0.5) * 36;
+    starPos[i*3+1] = (Math.random() - 0.5) * 26;
+    starPos[i*3+2] = (Math.random() - 0.5) * 10 - 8;
+  }
+  const starGeo = new THREE.BufferGeometry();
+  starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+  scene.add(new THREE.Points(starGeo, new THREE.PointsMaterial({
+    size: 0.030, color: 0xffffff, transparent: true, opacity: 0.50, sizeAttenuation: true,
+  })));
+
+  // ── Particle glow sprite ─────────────────────────────────────────
+  const spriteSize = 64;
+  const spriteCanvas = document.createElement('canvas');
+  spriteCanvas.width = spriteCanvas.height = spriteSize;
+  const sCtx = spriteCanvas.getContext('2d')!;
+  const grad = sCtx.createRadialGradient(spriteSize/2, spriteSize/2, 0, spriteSize/2, spriteSize/2, spriteSize/2);
+  grad.addColorStop(0.00, 'rgba(255,255,255,1.0)');
+  grad.addColorStop(0.25, 'rgba(255,255,255,0.7)');
+  grad.addColorStop(0.60, 'rgba(255,255,255,0.15)');
+  grad.addColorStop(1.00, 'rgba(255,255,255,0.0)');
+  sCtx.fillStyle = grad;
+  sCtx.fillRect(0, 0, spriteSize, spriteSize);
+  const spriteTexture = new THREE.CanvasTexture(spriteCanvas);
+
+  // ── Particle system ──────────────────────────────────────────────
+  const MAX_P = 700;
+  const pPos  = new Float32Array(MAX_P * 3);
+  const pCol  = new Float32Array(MAX_P * 3);
+  const pVelX = new Float32Array(MAX_P);
+  const pVelY = new Float32Array(MAX_P);
+  const pVelZ = new Float32Array(MAX_P);
+  const pLife = new Float32Array(MAX_P);   // 1 = born, 0 = dead
+
+  for (let i = 0; i < MAX_P; i++) pPos[i*3+1] = -900; // start hidden
+
+  const pGeo = new THREE.BufferGeometry();
+  pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+  pGeo.setAttribute('color',    new THREE.BufferAttribute(pCol, 3));
+
+  const pMesh = new THREE.Points(pGeo, new THREE.PointsMaterial({
+    size:           0.32,   // larger now — soft circular sprite fills well
+    map:            spriteTexture,
+    alphaMap:       spriteTexture,
+    vertexColors:   true,
+    transparent:    true,
+    blending:       THREE.AdditiveBlending,
+    depthWrite:     false,
+    depthTest:      false,
+    sizeAttenuation: true,
+  }));
+  pMesh.frustumCulled = false; // dead particles at Y=-900 would otherwise cull the whole system
+  scene.add(pMesh);
+
+  // ── Rocket state ─────────────────────────────────────────────────
+  let rocket:        THREE.Group | null = null;
+  let rocketBaseY    = 0.2;
+  let nozzleOffsets: THREE.Vector3[] = [];
+  let liftOffset     = -0.85;          // lifts to 0 on scroll entry
+  let liftReady      = false;
+
+  // Corrective rotation to align model's diagonal axis with world Y
+  const CORR_Z = -0.55;
+
+  const PARTICLE_LIFETIME = 2.2;       // seconds — longer plume
+  const EMIT_RATE         = 55;        // particles per nozzle per second — denser
+  let   emitAccum         = 0;
+
+  // ── GLTFLoader ───────────────────────────────────────────────────
+  new GLTFLoader().load('/models/rocket_ship.glb', (gltf) => {
+    rocket = gltf.scene;
+
+    // Apply corrective rotation BEFORE bbox so scale/centering are correct
+    rocket.rotation.z = CORR_Z;
+    rocket.updateMatrixWorld(true);
+
+    // Scale to fit canvas
+    const box = new THREE.Box3().setFromObject(rocket);
+    const size = box.getSize(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const scale  = 2.6 / maxDim; // smaller so nose doesn't clip and particles are visible
+    rocket.scale.setScalar(scale);
+
+    // Centre
+    const box2   = new THREE.Box3().setFromObject(rocket);
+    const center = box2.getCenter(new THREE.Vector3());
+    rocketBaseY  = -center.y + 0.25;
+    rocket.position.set(-center.x, rocketBaseY + liftOffset, -center.z);
+
+    // ── Find nozzle positions (emissive meshes = cyan tips) ───────
+    const found: THREE.Vector3[] = [];
+    rocket.traverse((child) => {
+      if (!(child as THREE.Mesh).isMesh) return;
+      const mesh = child as THREE.Mesh;
+      const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+      for (const m of mats) {
+        const ms = m as THREE.MeshStandardMaterial;
+        if (ms.emissive && ms.emissive.getHex() > 0x000000) {
+          const wp = new THREE.Vector3();
+          mesh.getWorldPosition(wp);
+          const lp = rocket!.worldToLocal(wp.clone());
+          found.push(lp.clone());
+          break;
+        }
+      }
+    });
+
+    // Bounding-box bottom corners → converted to rocket LOCAL space
+    // so spawnParticle can correctly transform them via matrixWorld each frame
+    {
+      rocket.updateMatrixWorld(true); // ensure matrix reflects current pos/scale/rot
+      const b  = new THREE.Box3().setFromObject(rocket);
+      const bc = b.getCenter(new THREE.Vector3());
+      const hw = (b.max.x - b.min.x) * 0.20;
+      const hd = (b.max.z - b.min.z) * 0.20;
+      const ny = b.min.y + (b.max.y - b.min.y) * 0.04;
+      // worldToLocal converts world-space corner → rocket local space
+      const toLocal = (x: number, y: number, z: number) =>
+        rocket!.worldToLocal(new THREE.Vector3(x, y, z));
+      nozzleOffsets = [
+        toLocal(bc.x - hw, ny, bc.z - hd),
+        toLocal(bc.x + hw, ny, bc.z - hd),
+        toLocal(bc.x - hw, ny, bc.z + hd),
+        toLocal(bc.x + hw, ny, bc.z + hd),
+      ];
+    }
+
+    // Also position rim light near nozzle area
+    const nozzleWorldY = rocketBaseY + nozzleOffsets[0].y;
+    rimLight.position.y = nozzleWorldY - 0.15;
+
+    // ── Brighten materials so the model is visible ────────────────
+    // Dark metallic PBR materials absorb most light; force semi-metallic
+    rocket.traverse((child) => {
+      if (!(child as THREE.Mesh).isMesh) return;
+      const mats = Array.isArray((child as THREE.Mesh).material)
+        ? (child as THREE.Mesh).material as THREE.Material[]
+        : [(child as THREE.Mesh).material as THREE.Material];
+      for (const m of mats) {
+        if ((m as any).type !== 'MeshStandardMaterial') continue;
+        const ms = m as THREE.MeshStandardMaterial;
+        const hasEmissive = ms.emissive &&
+          (ms.emissive.r + ms.emissive.g + ms.emissive.b) > 0.08;
+        if (!hasEmissive) {
+          // Make it semi-metallic so diffuse light reaches the surface
+          ms.metalness = 0.60;
+          ms.roughness = 0.28;
+          // Lift near-black colors to a visible dark navy-steel
+          const maxC = Math.max(ms.color.r, ms.color.g, ms.color.b);
+          if (maxC < 0.12) ms.color.setRGB(0.10, 0.13, 0.20);
+          ms.needsUpdate = true;
+        }
+      }
+    });
+
+    scene.add(rocket);
+    liftReady = true;
+  });
+
+  // ── Scroll entry trigger ─────────────────────────────────────────
+  let liftOffing = false;
+  new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) liftOffing = true;
+  }, { threshold: 0.20 }).observe(wrap);
+
+  // ── Mouse parallax ───────────────────────────────────────────────
+  let mxSmooth = 0, mySmooth = 0, mxTarget = 0, myTarget = 0;
+  wrap.addEventListener('mousemove', (e: MouseEvent) => {
+    const r = wrap.getBoundingClientRect();
+    mxTarget = ((e.clientX - r.left) / W - 0.5) * 2;
+    myTarget = ((e.clientY - r.top)  / H - 0.5) * 2;
+  }, { passive: true });
+  wrap.addEventListener('mouseleave', () => { mxTarget = 0; myTarget = 0; });
+
+  // ── Particle helpers ─────────────────────────────────────────────
+  function spawnParticleAt(wx: number, wy: number, wz: number) {
+    for (let i = 0; i < MAX_P; i++) {
+      if (pLife[i] > 0) continue;
+      pLife[i] = 1.0;
+
+      pPos[i*3]   = wx + (Math.random() - 0.5) * 0.10;
+      pPos[i*3+1] = wy + (Math.random() - 0.5) * 0.04;
+      pPos[i*3+2] = wz + (Math.random() - 0.5) * 0.10;
+
+      const spread = 0.14;
+      pVelX[i] = (Math.random() - 0.5) * spread;
+      pVelY[i] = -(0.85 + Math.random() * 0.45); // slow drift
+      pVelZ[i] = (Math.random() - 0.5) * spread;
+      break;
+    }
+  }
+
+  function updateParticles(delta: number) {
+    if (!rocket) return;
+
+    // Emit: compute fresh world-space nozzle positions each batch
+    emitAccum += delta;
+    const interval = 1 / EMIT_RATE;
+    if (emitAccum >= interval) {
+      // Fresh bbox in world space — always correct regardless of bob/spin
+      const fb = new THREE.Box3().setFromObject(rocket);
+      const bc = fb.getCenter(new THREE.Vector3());
+      const hw = (fb.max.x - fb.min.x) * 0.22;
+      const hd = (fb.max.z - fb.min.z) * 0.22;
+      const ny = fb.min.y + (fb.max.y - fb.min.y) * 0.03;
+      const nozzles = [
+        [bc.x - hw, ny, bc.z - hd],
+        [bc.x + hw, ny, bc.z - hd],
+        [bc.x - hw, ny, bc.z + hd],
+        [bc.x + hw, ny, bc.z + hd],
+      ] as [number, number, number][];
+
+      while (emitAccum >= interval) {
+        emitAccum -= interval;
+        for (const [nx, ny2, nz] of nozzles) spawnParticleAt(nx, ny2, nz);
+      }
+    }
+
+    // Simulate
+    for (let i = 0; i < MAX_P; i++) {
+      if (pLife[i] <= 0) continue;
+      pLife[i] -= delta / PARTICLE_LIFETIME;
+
+      if (pLife[i] <= 0) {
+        pLife[i] = 0;
+        pPos[i*3+1] = -900;
+        continue;
+      }
+
+      pPos[i*3]   += pVelX[i] * delta;
+      pPos[i*3+1] += pVelY[i] * delta;
+      pPos[i*3+2] += pVelZ[i] * delta;
+
+      // Plume: lateral spread increases over time
+      pVelX[i] *= 1 + delta * 0.65;
+      pVelZ[i] *= 1 + delta * 0.65;
+
+      // Color: white-hot core → bright emerald → cool teal tail → gone
+      // Multiplied by 1.8 for additive brightness on dark background
+      const life = Math.max(0, pLife[i]);
+      let r, g, b;
+      if (life > 0.75) {
+        // White-hot birth flash
+        const t2 = (life - 0.75) / 0.25;
+        r = (1.0 + 0.0 * t2) * life * 1.8;
+        g = (1.0 + 0.0 * t2) * life * 1.8;
+        b = (0.9 + 0.1 * t2) * life * 1.8;
+      } else if (life > 0.35) {
+        // Bright emerald core
+        const t2 = (life - 0.35) / 0.40;
+        r = (0.05 + 0.10 * t2) * life * 1.8;
+        g = (0.90 + 0.10 * t2) * life * 1.8;
+        b = (0.55 + 0.35 * t2) * life * 1.8;
+      } else {
+        // Cool teal fading tail
+        r = 0.02  * life * 1.8;
+        g = 0.75  * life * 1.8;
+        b = 0.95  * life * 1.8;
+      }
+      pCol[i*3]   = r;
+      pCol[i*3+1] = g;
+      pCol[i*3+2] = b;
+    }
+
+    pGeo.attributes.position.needsUpdate = true;
+    pGeo.attributes.color.needsUpdate    = true;
+  }
+
+  // ── Main loop ────────────────────────────────────────────────────
+  const clock = new THREE.Clock();
+  let t = 0;
+
+  function tick() {
+    requestAnimationFrame(tick);
+    const delta = Math.min(clock.getDelta(), 0.05); // cap at 50ms
+    t += delta;
+
+    // Smooth mouse
+    mxSmooth += (mxTarget - mxSmooth) * 0.065;
+    mySmooth += (myTarget - mySmooth) * 0.065;
+
+    // Lift-off ease-in
+    if (liftOffing && liftOffset < 0) {
+      liftOffset += (0 - liftOffset) * Math.min(1, delta * 1.8);
+      if (liftOffset > -0.005) liftOffset = 0;
+    }
+
+    if (rocket) {
+      const bobY = Math.sin(t * 0.72) * 0.14;
+      const swayZ = Math.cos(t * 0.48) * 0.022;
+
+      rocket.position.y = rocketBaseY + bobY + liftOffset;
+      rocket.rotation.y = t * 0.04  + mxSmooth * -0.07;  // slow spin + mouse
+      rocket.rotation.z = CORR_Z + swayZ + mxSmooth * 0.045; // corrected + mouse lean
+      rocket.rotation.x = mySmooth * -0.045;
+
+      // Rim light follows nozzle
+      if (nozzleOffsets.length > 0) {
+        const ny = nozzleOffsets[0].y;
+        rimLight.position.y = rocketBaseY + bobY + liftOffset + ny - 0.1;
+      }
+    }
+
+    // Pulse engine glow
+    rimLight.intensity = 3.5 + Math.sin(t * 7.2) * 0.65;
+
+    updateParticles(delta);
+    renderer.render(scene, camera);
+  }
+
+  tick();
+
+  window.addEventListener('resize', () => {
+    W = wrap.offsetWidth;
+    H = wrap.offsetHeight;
+    camera.aspect = W / H;
+    camera.updateProjectionMatrix();
+    renderer.setSize(W, H);
+  }, { passive: true });
+
+  // Pause when tab hidden
+  document.addEventListener('visibilitychange', () => {
+    document.hidden ? clock.stop() : clock.start();
+  });
+})();
+</script>

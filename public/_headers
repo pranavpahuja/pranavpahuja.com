@@ -30,5 +30,8 @@
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: image/webp
 
+/models/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /resume_cv/*
   Cache-Control: public, max-age=86400
