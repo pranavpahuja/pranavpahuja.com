@@ -2,28 +2,37 @@
 ---
 <section class="section-dark py-24">
   <div class="container mx-auto px-5">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
 
-      <!-- Left: Text + Orbital -->
-      <div class="flex flex-col">
-        <div class="mb-auto">
-          <span class="section-label">05 — Working Together</span>
-          <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            How I<br/>Engage<span style="color:#34d399">.</span>
-          </h2>
-          <p style="color:rgba(255,255,255,0.50)" class="text-lg max-w-sm leading-relaxed">
-            Flexible models designed to fit your enterprise needs — from advisory to full-scale delivery.
-          </p>
-        </div>
+    <!-- Section header — full row -->
+    <div class="mb-10">
+      <span class="section-label">05 — Working Together</span>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight">
+          How I Engage<span style="color:#34d399">.</span>
+        </h2>
+        <p style="color:rgba(255,255,255,0.50)" class="text-base md:text-lg max-w-sm leading-relaxed md:text-right">
+          Flexible models designed to fit your enterprise needs — from advisory to full-scale delivery.
+        </p>
+      </div>
+    </div>
 
-        <!-- Orbital animation — takes up the visual real-estate below text -->
-        <div id="engagement-orbit-wrap" class="relative w-full mt-10" style="height:380px">
-          <canvas id="engagement-orbit-canvas" class="absolute inset-0 w-full h-full"></canvas>
-        </div>
+    <!-- Two-column: big orbital left, list right -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 relative z-10 items-center">
+
+      <!-- Orbital — generous 7-column canvas -->
+      <div id="engagement-orbit-wrap"
+           class="col-span-1 md:col-span-7 relative rounded-[28px] overflow-hidden"
+           style="height:520px;
+                  background:linear-gradient(145deg,rgba(255,255,255,0.03),rgba(10,10,10,0));
+                  border:1px solid rgba(255,255,255,0.06)">
+        <canvas id="engagement-orbit-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        <!-- Vignette -->
+        <div class="absolute inset-0 pointer-events-none rounded-[28px]"
+             style="background:radial-gradient(ellipse at center,transparent 42%,rgba(10,10,10,0.5) 100%)"></div>
       </div>
 
-      <!-- Right: Engagement list -->
-      <div class="engagement-list flex flex-col gap-3 justify-center">
+      <!-- Engagement list — 5 columns -->
+      <div class="engagement-list col-span-1 md:col-span-5 flex flex-col gap-3">
         {[
           'Senior-led, hands-on engagements',
           'Hypothesis-driven problem framing',
@@ -69,11 +78,11 @@
   resize();
   window.addEventListener('resize', resize, { passive: true });
 
-  // ── Three orbital rings ────────────────────────────────
+  // ── Three orbital rings — higher tilt = more spherical/3D look ──
   const rings = [
-    { a: 0,     speed:  0.014, dotCount: 2, dotR: 5.0, tilt: 0.38 },
-    { a: 1.1,   speed: -0.008, dotCount: 3, dotR: 4.0, tilt: 0.24 },
-    { a: 0.55,  speed:  0.005, dotCount: 5, dotR: 3.0, tilt: 0.16 },
+    { a: 0,     speed:  0.014, dotCount: 2, dotR: 6.0, tilt: 0.62 },
+    { a: 1.1,   speed: -0.009, dotCount: 3, dotR: 4.8, tilt: 0.52 },
+    { a: 0.55,  speed:  0.005, dotCount: 5, dotR: 3.5, tilt: 0.42 },
   ];
 
   let hovered  = false;
@@ -88,28 +97,27 @@
     requestAnimationFrame(tick);
     ctx.clearRect(0, 0, W, H);
 
-    const target  = hovered ? 2.8 : 1;
+    const target = hovered ? 2.8 : 1;
     speedMul += (target - speedMul) * 0.05;
     t        += 0.01 * speedMul;
 
-    // ── Centre offset: slightly left so orbital doesn't fight list ──
-    const cx = W * 0.46;
+    const cx = W * 0.50;   // centred in its column
     const cy = H * 0.52;
 
-    // ── Generous radii — fill the tall container ──────────
-    const maxR = Math.min(W * 0.40, H * 0.44);
-    const radii = [maxR * 0.36, maxR * 0.63, maxR];
+    // Fill the taller canvas — H is now generous enough
+    const maxR = Math.min(W * 0.42, H * 0.44);
+    const radii = [maxR * 0.36, maxR * 0.64, maxR];
 
     for (let ri = 0; ri < rings.length; ri++) {
       const ring = rings[ri];
       const rx   = radii[ri];
       const ry   = rx * ring.tilt;
 
-      // Ring ellipse
+      // Ring ellipse — slightly brighter
       ctx.beginPath();
       ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(16,185,129,0.20)';
-      ctx.lineWidth   = 1.0;
+      ctx.strokeStyle = 'rgba(16,185,129,0.25)';
+      ctx.lineWidth   = 1.2;
       ctx.stroke();
 
       // Orbiting dots
@@ -119,15 +127,15 @@
         const y = cy + Math.sin(angle) * ry;
 
         const depth = Math.sin(angle);
-        const alpha = 0.30 + ((depth + 1) / 2) * 0.62;
-        const r     = ring.dotR * (0.6 + ((depth + 1) / 2) * 0.60);
+        const alpha = 0.32 + ((depth + 1) / 2) * 0.64;
+        const r     = ring.dotR * (0.58 + ((depth + 1) / 2) * 0.62);
 
-        // Glow
-        const grd = ctx.createRadialGradient(x, y, 0, x, y, r * 4.0);
-        grd.addColorStop(0, `rgba(52,211,153,${alpha * 0.50})`);
+        // Outer glow
+        const grd = ctx.createRadialGradient(x, y, 0, x, y, r * 4.5);
+        grd.addColorStop(0, `rgba(52,211,153,${alpha * 0.55})`);
         grd.addColorStop(1, 'rgba(52,211,153,0)');
         ctx.beginPath();
-        ctx.arc(x, y, r * 4.0, 0, Math.PI * 2);
+        ctx.arc(x, y, r * 4.5, 0, Math.PI * 2);
         ctx.fillStyle = grd;
         ctx.fill();
 
@@ -139,18 +147,20 @@
       }
     }
 
-    // ── Centre node ────────────────────────────────────────
-    const pulse = 0.85 + Math.sin(t * 2.5) * 0.12;
-    const cgrd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 10 * pulse);
-    cgrd.addColorStop(0, 'rgba(52,211,153,0.80)');
+    // ── Pulsing centre node ────────────────────────────────
+    const pulse = 0.85 + Math.sin(t * 2.5) * 0.13;
+
+    const cgrd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 14 * pulse);
+    cgrd.addColorStop(0, 'rgba(52,211,153,0.85)');
+    cgrd.addColorStop(0.4, 'rgba(52,211,153,0.30)');
     cgrd.addColorStop(1, 'rgba(52,211,153,0)');
     ctx.beginPath();
-    ctx.arc(cx, cy, 10 * pulse, 0, Math.PI * 2);
+    ctx.arc(cx, cy, 14 * pulse, 0, Math.PI * 2);
     ctx.fillStyle = cgrd;
     ctx.fill();
 
     ctx.beginPath();
-    ctx.arc(cx, cy, 3.5 * pulse, 0, Math.PI * 2);
+    ctx.arc(cx, cy, 4.5 * pulse, 0, Math.PI * 2);
     ctx.fillStyle = 'rgba(52,211,153,0.95)';
     ctx.fill();
   }
