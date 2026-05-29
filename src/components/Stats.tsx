@@ -56,7 +56,7 @@ export default function Stats() {
         <div className="col-span-1">
           <div className="flex items-center gap-4">
             <h2 className="text-5xl md:text-6xl font-bold">
-              <Counter value={180} suffix="+" />
+              <Counter value={300} suffix="+" />
             </h2>
             <p className="text-gray-600 uppercase tracking-widest text-sm leading-tight">
               Hours Saved<br/>Per Month
