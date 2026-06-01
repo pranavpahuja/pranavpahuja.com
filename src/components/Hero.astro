@@ -29,7 +29,7 @@ import HeroBlob from './HeroBlob.astro';
         </div>
 
         <!-- Headline with stagger -->
-        <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.92] tracking-tight mb-8 text-black overflow-hidden">
+        <h1 class="text-[2.6rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.92] tracking-tight mb-8 text-black overflow-hidden">
           <span class="hero-a2 block"><span class="text-green">AI-Enabled</span></span>
           <span class="hero-a3 block">Operations</span>
           <span class="hero-a4 block text-gray-300">& Strategy.</span>
@@ -48,11 +48,11 @@ import HeroBlob from './HeroBlob.astro';
         </div>
 
         <!-- CTA -->
-        <div class="hero-a7 flex items-center gap-4">
+        <div class="hero-a7 flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <button
             id="hero-cta"
             onclick="window.dispatchEvent(new CustomEvent('open-resume-modal'))"
-            class="btn-primary btn-magnetic group flex items-center gap-2 cursor-pointer"
+            class="btn-primary btn-magnetic group flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center sm:justify-start"
             aria-label="View Executive Resume"
           >
             Executive Bio

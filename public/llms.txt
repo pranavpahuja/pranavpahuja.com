@@ -1,0 +1,35 @@
+# Pranav Pahuja — pranavpahuja.com
+
+> Strategy & Digital Transformation Consultant with 6+ years at Deloitte Consulting USI. Specialises in AI-enabled operations, enterprise architecture, Oracle integration systems, and Python automation for Fortune 500 clients across retail, consumer, public services, and healthcare.
+
+## About
+
+Pranav Pahuja is a Consultant at Deloitte Consulting USI based in Gurugram, India. He works at the intersection of enterprise technology and business strategy — designing transformation roadmaps, deploying AI and automation platforms, and translating complex technical programs into executive-level business outcomes.
+
+Key achievements:
+- 300+ hours/month saved across 40+ automation solutions (alerts, monitoring, data syncing, reporting)
+- 99.9% error reduction across mission-critical production systems
+- ~80% reduction in production failures for a Fortune 500 US retailer (Kroger)
+- Ranked 3rd out of 134 practitioners in Deloitte's AI Academy (9-month program)
+- Led teams of 5+ consultants; coordinated 20+ global cross-functional teams
+
+## Expertise
+
+- AI Strategy & Automation: LLM implementation, AI-enabled workflows, prompt engineering, applied GenAI tooling
+- Enterprise Architecture: Oracle Integration Cloud (OIC), Oracle Database, PL/SQL, API design, event-driven architecture (Kafka)
+- Python Engineering: Advanced automation frameworks, multi-threaded API testing, enterprise platform development
+- Digital Transformation: End-to-end program delivery, Agile/SAFe, PI Planning, executive stakeholder engagement
+- Oracle Systems: OIC, Oracle DB, PL/SQL scripting, enterprise integration validation, batch processing
+
+## Background
+
+- Deloitte Consulting USI — Consultant (2023–present), Analyst (2020–2023)
+- Thapar Institute of Engineering & Technology — B.Tech Computer Engineering (2016–2020)
+- Certifications: Deloitte AI Certified (Top 3/134), Google Advanced Data Analytics, Oracle Certified
+
+## Contact
+
+- Website: https://pranavpahuja.com
+- Email: prnvp@protonmail.ch
+- LinkedIn: https://linkedin.com/in/prnvp
+- GitHub: https://github.com/pranavpahuja
