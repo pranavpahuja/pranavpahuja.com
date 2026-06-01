@@ -44,11 +44,15 @@
 }
 
 /* ─── Base ──────────────────────────────────────────── */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   background-color: var(--white);
   color: var(--black);
+  overflow-x: hidden;
 }
 
 /* Grain texture — tactile premium feel */
