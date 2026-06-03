@@ -1,31 +1,36 @@
 import { motion } from "framer-motion";
 
-const QuoteIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-       strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
-    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
-    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
-  </svg>
-);
-
-const testimonials = [
+const recognitions = [
   {
-    quote: "Outstanding work. Pranav's delivery exceeded every expectation — structured, proactive, and results-driven.",
-    author: "US-Based Retail Client",
-    role: "Fortune 500 Program",
-    date: "Aug 2024",
+    metric: "3×",
+    title: "Deloitte Awards",
+    detail: "Recognised multiple times for outstanding delivery, technical excellence, and client impact across programmes.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2">
+        <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+      </svg>
+    ),
   },
   {
-    quote: "Pranav's business and data automations have saved hundreds of hours of effort. The quality and reliability are exceptional.",
-    author: "Kevin H.",
-    role: "Delivery Lead",
-    date: "Mar 2025",
+    metric: "F500",
+    title: "Client Commendation",
+    detail: "Directly commended by client stakeholders at a Fortune 500 US retailer for automation solutions and delivery quality.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+    ),
   },
   {
-    quote: "A rare consultant who combines technical depth with sharp business judgment. Highly recommended.",
-    author: "John L.",
-    role: "Senior Stakeholder",
-    date: "Jan 2025",
+    metric: "Top 3",
+    title: "Deloitte AI Academy",
+    detail: "Ranked 3rd out of 134 practitioners by XP earned across a 9-month AI learning, testing, and capstone programme.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+      </svg>
+    ),
   },
 ];
 
@@ -34,33 +39,33 @@ export default function Testimonials() {
     <section className="py-24 bg-white">
       <div className="container mx-auto px-5">
         <div className="mb-14">
-          <span className="section-label">04 — Social Proof</span>
+          <span className="section-label">04 — Recognition</span>
           <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
-            What Clients Say<span style={{ color: "#10b981" }}>.</span>
+            Awards & Recognition<span style={{ color: "#10b981" }}>.</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((item, index) => (
+          {recognitions.map((item, index) => (
             <motion.div
-              key={item.author}
+              key={item.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
-              className="glass-panel text-black p-8 rounded-[30px] relative group"
+              className="glass-panel text-black p-8 rounded-[30px] relative group flex flex-col justify-between"
             >
-              <QuoteIcon
-                className="w-9 h-9 mb-6 opacity-70 group-hover:opacity-100 transition-opacity"
-                style={{ color: "#10b981" }}
-              />
-              <p className="text-lg font-medium mb-8 leading-relaxed text-gray-800">
-                "{item.quote}"
-              </p>
-              <div className="mt-auto">
+              <div>
+                <div className="w-10 h-10 rounded-2xl flex items-center justify-center mb-6"
+                     style={{ background: "rgba(16,185,129,0.10)", border: "1px solid rgba(16,185,129,0.25)" }}>
+                  {item.icon}
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-8">{item.detail}</p>
+              </div>
+              <div>
                 <div className="w-8 h-[2px] mb-4 rounded-full" style={{ background: "#10b981" }} />
-                <h5 className="font-bold text-base text-black">{item.author}</h5>
-                <p className="text-gray-400 text-sm mt-0.5">{item.role} · {item.date}</p>
+                <p className="text-4xl font-bold text-black mb-1">{item.metric}</p>
+                <p className="text-gray-400 text-sm font-semibold uppercase tracking-widest">{item.title}</p>
               </div>
             </motion.div>
           ))}
