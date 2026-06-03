@@ -1,0 +1,23 @@
+/* TEAM */
+Name: Pranav Pahuja
+Role: AI & Technology Transformation Consultant
+Location: Gurugram, Haryana, India
+Contact: prnvp [at] protonmail.ch
+LinkedIn: linkedin.com/in/prnvp
+
+/* ABOUT */
+6+ years at Deloitte Consulting USI.
+Fortune 500 clients. Oracle. Python. Automation.
+Ranked 3rd of 134 in Deloitte AI Academy.
+Builds things that save time, reduce errors, and actually get used.
+
+Currently: open to new roles in AI transformation and enterprise consulting.
+
+/* SITE */
+Built with: Astro, Three.js, Tailwind CSS, Framer Motion, GSAP
+Deployed on: Netlify
+Last updated: June 2026
+
+/* STANDARDS */
+HTML5, CSS3, TypeScript
+Accessibility: WCAG 2.1 AA
